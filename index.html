@@ -10,7 +10,7 @@
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://siavaran.com">
-<meta property="og:title" content="Siavaran | Calzado Deportivo · Santa Marta, Colombia">
+<meta property="og:title" content="Siavaran | Calzado Deportivo">
 <meta property="og:description" content="Nike, Adidas, Puma, New Balance y más. Envíos 24-48h a toda Colombia. Cambio de talla gratis.">
 <meta property="og:image" content="https://siavaran.com/assets/editorial/hero-zapatos.png">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Siavaran | Calzado Deportivo · Santa Marta, Colombia">
+<meta name="twitter:title" content="Siavaran | Calzado Deportivo">
 <meta name="twitter:description" content="Nike, Adidas, Puma y más. Envíos 24-48h a toda Colombia. Cambio de talla gratis.">
 <meta name="twitter:image" content="https://siavaran.com/assets/editorial/hero-zapatos.png">
 
@@ -31,7 +31,7 @@
     {
       "@type": "ShoeStore",
       "name": "Siavaran",
-      "description": "Calzado deportivo de importación, ropa y fragancias con despacho a toda Colombia. Basados en Santa Marta.",
+      "description": "Calzado deportivo de importación, ropa y fragancias con despacho a toda Colombia.",
       "currenciesAccepted": "COP",
       "paymentAccepted": "Credit Card, Debit Card, Nequi, Bancolombia, PSE, Wompi",
       "areaServed": {
@@ -3137,7 +3137,7 @@
     <img class="editorial-hero-img" src="assets/editorial/hero-zapatos.png" alt="" aria-hidden="true" loading="eager">
     <div class="editorial-hero-overlay">
       <div class="hero-top">
-        <p class="editorial-eyebrow">★ Santa Marta · Envíos a toda Colombia</p>
+        <p class="editorial-eyebrow">★ Envíos a toda Colombia</p>
         <h1 class="editorial-hero-title">Siavaran</h1>
       </div>
       <div class="hero-bottom">
@@ -3404,8 +3404,6 @@
   <footer class="site-footer">
     <div class="site-footer-inner">
       <span class="site-footer-logo">Siavaran</span>
-      <span class="site-footer-sep">·</span>
-      <span>Santa Marta, Colombia</span>
       <span class="site-footer-sep">·</span>
       <a href="https://wa.me/573226935463" target="_blank" rel="noopener">WhatsApp</a>
       <span class="site-footer-sep">·</span>
@@ -4464,7 +4462,7 @@ document.getElementById('btn-compartir')?.addEventListener('click', async () => 
   const nombre = `${modalProduct.marca} ${modalProduct.modelo || ''}`.trim();
   const precio = fmt(getSalePrice(modalProduct));
   const url = location.origin + location.pathname + '?p=' + encodeURIComponent(modalProduct.codigo);
-  const texto = `${nombre} — ${precio} | Siavaran, Santa Marta\n${url}`;
+  const texto = `${nombre} — ${precio} | Siavaran\n${url}`;
   if (navigator.share) {
     await navigator.share({ title: nombre, text: nombre, url }).catch(() => {});
   } else {
