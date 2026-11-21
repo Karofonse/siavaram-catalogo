@@ -18,6 +18,7 @@ import unicodedata
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
+FICHAS = set(json.loads((RAIZ / "scripts" / "productos_permitidos.json").read_text(encoding="utf-8")))  # códigos con página /producto/<codigo>/
 WA = "573106935192"
 
 DESTACADOS_ROPA = [
@@ -49,6 +50,12 @@ def fmt(n: int) -> str:
     return "$ " + f"{n:,}".replace(",", ".")
 
 
+def enlace_ficha(cod: str, nombre: str) -> str:
+    if cod in FICHAS:
+        return f'<a class="card-ficha" href="/producto/{cod}/">{nombre}</a>'
+    return nombre
+
+
 def tarjeta(p: dict) -> str:
     nombre = html.escape(p["nombre"])
     precio = fmt(p["precio_venta"])
@@ -77,7 +84,7 @@ def tarjeta(p: dict) -> str:
       </div>
       <div class="card-body">
         <div class="card-title-row"><div class="card-brand">{html.escape(p["categoria"])}</div></div>
-        <div class="card-model">{nombre}</div>
+        <div class="card-model">{enlace_ficha(cod, nombre)}</div>
         <div class="card-pricing"><div class="price-block sale"><span class="price-value">{precio}</span></div></div>{det}
         <a class="btn-card-wa" href="{html.escape(url)}" target="_blank" rel="noopener noreferrer" data-lead="{html.escape(p.get('ref') or p['codigo'])}">
           {ICONO_WA}
