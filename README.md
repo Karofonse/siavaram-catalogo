@@ -4,7 +4,7 @@ Catálogo público estático (HTML + fotos) lista para alojar en tu dominio.
 
 ## Estructura
 
-- `index.html` — página con 2.720 productos (zapatos, ropa, perfumes), filtros, fotos, carrito, botón "Comprar por WhatsApp".
+- `index.html` — página con 2.718 productos (zapatos, ropa, perfumes), filtros, fotos, carrito, botón "Comprar por WhatsApp".
 - `fotos/` — 943 MB de imágenes optimizadas (900px, JPEG calidad 60).
 
 ## Desplegar a tu hosting
@@ -32,12 +32,29 @@ Usa tu cliente FTP (Transmit, Cyberduck, etc.) para subir la carpeta.
 
 ## Actualizar el catálogo
 
-Cuando el datalake tenga nuevos productos:
+Este `index.html` ya tiene el diseño de la tienda. No lo reemplaces por el HTML
+generado en bruto. Cuando el datalake tenga productos nuevos, copia solo los
+datos y las fotos, y sanea antes de publicar:
 
 ```bash
-# En didactic-octo-eureka:
+# En didactic-octo-eureka (opcional, genera también cliente.html):
 python3 datalake.py unificar datalake/gold --salida tienda --cliente
-# Copia tienda/cliente.html y catalogo_clientes/fotos/ a este repo
+
+# En este repo, después de pegar productos en index.html:
+python3 scripts/sanear_catalogo_publico.py
+```
+
+El script quita costos, márgenes, nombre y teléfono del proveedor, y el texto
+original (lleva el costo). En el sitio público solo debe quedar el precio de venta.
+
+## Vista interna (solo en local)
+
+GitHub Pages publica todo este repo: no subas aquí un `index.html` con costos.
+La vista interna y la calculadora se generan en didactic-octo-eureka:
+
+```bash
+python3 datalake.py unificar datalake/gold --salida tienda
+# Abrir tienda/index.html en local. No copiar ese archivo a este repo.
 ```
 
 ## Estructura esperada en el servidor
