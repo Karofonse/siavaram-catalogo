@@ -3,37 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<title>Siavaran | Calzado Deportivo · Envíos 24h Colombia</title>
-<meta name="description" content="Catálogo exclusivo de Calzado Deportivo, Ropa y Perfumes de importación en Colombia. Envíos 24-48h a Bogotá, Medellín, Cali. Cambio de talla gratis y pago seguro con Nequi, Wompi o PSE.">
-<link rel="canonical" href="https://siavaran.com">
+<title>Siavaran | Moda y Perfumes · Envío gratis a toda Colombia</title>
+<meta name="description" content="Ropa de mujer y perfumes importados con envío gratis a toda Colombia, 2 a 5 días hábiles. Pide por WhatsApp y paga por Nequi o transferencia.">
+<link rel="canonical" href="https://siavaran.com/">
+<link rel="preload" href="data/catalogo.json" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="assets/editorial/hero-mujer.webp" as="image" media="(min-width: 581px)">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://siavaran.com">
-<meta property="og:title" content="Siavaran | Calzado Deportivo">
-<meta property="og:description" content="Nike, Adidas, Puma, New Balance y más. Envíos 24-48h a toda Colombia. Cambio de talla gratis.">
-<meta property="og:image" content="https://siavaran.com/assets/editorial/hero-zapatos.png">
+<meta property="og:title" content="Siavaran | Moda y Perfumes">
+<meta property="og:description" content="Ropa de mujer y perfumes. Envío gratis a toda Colombia, 2 a 5 días hábiles. Pide por WhatsApp.">
+<meta property="og:image" content="https://siavaran.com/assets/editorial/og-portada.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_CO">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Siavaran | Calzado Deportivo">
-<meta name="twitter:description" content="Nike, Adidas, Puma y más. Envíos 24-48h a toda Colombia. Cambio de talla gratis.">
-<meta name="twitter:image" content="https://siavaran.com/assets/editorial/hero-zapatos.png">
+<meta name="twitter:title" content="Siavaran | Moda y Perfumes">
+<meta name="twitter:description" content="Ropa de mujer y perfumes. Envío gratis a toda Colombia, 2 a 5 días hábiles.">
+<meta name="twitter:image" content="https://siavaran.com/assets/editorial/og-portada.jpg">
 
-<!-- Schema.org JSON-LD (ShoeStore + FAQPage) -->
+<!-- Schema.org JSON-LD (ClothingStore + FAQPage) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ShoeStore",
+      "@type": "ClothingStore",
       "name": "Siavaran",
-      "description": "Calzado deportivo de importación, ropa y fragancias con despacho a toda Colombia.",
+      "url": "https://siavaran.com/",
+      "description": "Ropa de mujer y perfumes importados con envío gratis a toda Colombia.",
+      "telephone": "+57 310 693 5192",
       "currenciesAccepted": "COP",
-      "paymentAccepted": "Credit Card, Debit Card, Nequi, Bancolombia, PSE, Wompi",
+      "paymentAccepted": "Nequi, Transferencia bancaria",
       "areaServed": {
         "@type": "Country",
         "name": "Colombia"
@@ -44,18 +48,18 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿Cómo garantizan la calidad del calzado?",
+          "name": "¿Cómo sé que el producto es como en las fotos?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Cada par tiene fotos reales del producto. Si quieres ver más ángulos o detalles antes de pedir, escríbenos por WhatsApp y te los compartimos al instante."
+            "text": "Cada producto tiene fotos reales. Si quieres ver más ángulos o detalles antes de pedir, escríbenos por WhatsApp y te los compartimos."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Cómo sé mi talla exacta antes de pedir?",
+          "name": "¿Cómo sé mi talla?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "En nuestro chat te asesoramos según la longitud en centímetros de tu pie y el modelo que elijas. Si al llegar no te queda, el cambio de talla es 100% gratis."
+            "text": "Escríbenos por WhatsApp con tu talla habitual o tus medidas y te asesoramos. Cambios por talla: escríbenos por WhatsApp."
           }
         },
         {
@@ -63,7 +67,7 @@
           "name": "¿Cuáles son los tiempos de envío?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "24 horas en ciudades principales (Bogotá, Medellín, Cali, Barranquilla). 48 a 72 horas en el resto de municipios del país."
+            "text": "Envío gratis a toda Colombia, 2 a 5 días hábiles."
           }
         },
         {
@@ -71,7 +75,7 @@
           "name": "¿Qué métodos de pago aceptan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Aceptamos Nequi Bre-B, Botón Bancolombia, PSE y tarjetas de crédito/débito vía Wompi. El pago se confirma antes de despachar."
+            "text": "Nequi o transferencia bancaria. El pago se confirma antes de despachar."
           }
         }
       ]
@@ -2636,7 +2640,7 @@
       height: clamp(400px, 60vh, 520px);
       border-radius: var(--radius-md);
       background:
-        url('assets/editorial/hero-zapatos.png') bottom center / 92% auto no-repeat,
+        url('assets/editorial/hero-mujer.webp') center 22% / cover no-repeat,
         radial-gradient(ellipse at 50% 90%, rgba(190,85,20,0.70) 0%, rgba(130,45,0,0.32) 40%, transparent 66%),
         #0e0e0e;
     }
@@ -2670,7 +2674,7 @@
       height: clamp(340px, 46vh, 410px);
       min-height: 340px;
       background:
-        url('assets/editorial/hero-zapatos.png') bottom center / 96% auto no-repeat,
+        url('assets/editorial/hero-mujer.webp') center 22% / cover no-repeat,
         radial-gradient(ellipse at 50% 90%, rgba(190,85,20,0.70) 0%, rgba(130,45,0,0.32) 40%, transparent 66%),
         #0e0e0e;
     }
@@ -3051,6 +3055,33 @@
     font-size: 9px;
     padding: 0 2px;
   }
+
+  /* ===== PORTADA MUJER ===== */
+  .editorial-hero { height: clamp(320px, 40vh, 400px); }
+  .editorial-hero-img { top: 0; bottom: auto; right: 0; width: 46%; max-width: 560px; height: 100%; object-fit: cover; object-position: center 18%; filter: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 30%); mask-image: linear-gradient(to right, transparent 0, #000 30%); }
+  .editorial-hero:hover .editorial-hero-img { transform: none; filter: none; }
+  .editorial-hero-title { font-size: clamp(44px, 6.5vw, 76px); }
+  .editorial-hero-overlay { padding: 32px 40px 34px; }
+  @media (max-width: 768px) {
+    .editorial-hero-img { width: 62%; opacity: 0.75; }
+    .editorial-hero-overlay { padding: 22px 20px 24px; }
+  }
+  @media (max-width: 580px) {
+    .editorial-hero { height: clamp(300px, 44vh, 360px); min-height: 300px; }
+    .editorial-hero-title { font-size: 40px; }
+  }
+  .portada-seccion { margin-top: 28px; }
+  .portada-seccion .collections-header { margin-bottom: 14px; }
+  .destacados-grid { margin-top: 0; }
+  .destacados-grid .card-model { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; min-height: 2.4em; }
+  .destacados-grid .card-media img { object-position: center 20%; }
+  a.btn-card-wa { text-decoration: none; box-sizing: border-box; }
+  .portada-mas { text-align: center; margin-top: 16px; }
+  .btn-portada-mas { background: transparent; color: var(--primary); border: 1.5px solid var(--primary); border-radius: var(--radius-full); padding: 11px 26px; font-size: 14px; font-weight: 800; cursor: pointer; }
+  .btn-portada-mas:hover { background: var(--primary-subtle); }
+  .portada-catalogo { margin-top: 44px; margin-bottom: 4px; }
+  .site-footer-inner a { padding: 2px 0; }
 </style>
 </head>
 <body class="cliente">
@@ -3067,7 +3098,7 @@
         <div class="brand-icon"><img src="logos/logo-siavaran.png" alt="Siavaran" width="52" height="52" style="display:block;object-fit:contain;"></div>
         <div class="brand-text">
           <h1 id="titulo-catalogo">Siavaran</h1>
-          <p id="subtitulo-proveedor">Calzado Deportivo · Envíos a todo Colombia</p>
+          <p id="subtitulo-proveedor">Moda y Perfumes · Envío gratis a toda Colombia</p>
         </div>
       </a>
       <div class="header-actions">
@@ -3088,29 +3119,348 @@
 </header>
 
 <main>
-  <!-- 1. EDITORIAL HERO -->
+  <!-- 1. HERO: ropa de mujer (foto real del catálogo) -->
   <section class="editorial-hero">
-    <img class="editorial-hero-img" src="assets/editorial/hero-zapatos.png" alt="" aria-hidden="true" loading="eager">
+    <img class="editorial-hero-img" src="assets/editorial/hero-mujer.webp" alt="Conjunto jogger beige para mujer" width="675" height="900" loading="eager" fetchpriority="high">
     <div class="editorial-hero-overlay">
       <div class="hero-top">
-        <p class="editorial-eyebrow">★ Envíos a toda Colombia</p>
-        <h1 class="editorial-hero-title">Siavaran</h1>
+        <p class="editorial-eyebrow">★ Envío gratis a toda Colombia</p>
+        <h2 class="editorial-hero-title">Siavaran</h2>
       </div>
       <div class="hero-bottom">
-        <p class="editorial-hero-sub">Las mejores marcas. El mejor flow.</p>
-        <button class="editorial-hero-cta" type="button" onclick="document.getElementById('colecciones').scrollIntoView({behavior:'smooth'})">Ver colecciones ↓</button>
+        <p class="editorial-hero-sub">Moda y perfumes para ella. Pide por WhatsApp.</p>
+        <button class="editorial-hero-cta" type="button" onclick="document.getElementById('ropa-mujer').scrollIntoView({behavior:'smooth'})">Ver prendas ↓</button>
       </div>
     </div>
   </section>
-  <!-- 2. BENEFICIOS (trust signals — below the catalog) -->
-    <div class="cro-grid-3">
+
+  <!-- 2. ROPA DE MUJER (destacados reales; generado por scripts/generar_portada.py) -->
+  <section class="portada-seccion" id="ropa-mujer">
+    <div class="collections-header">
+      <h2>Ropa de <span class="accent">mujer</span></h2>
+      <p>Pide por WhatsApp · Envío gratis</p>
+    </div>
+    <div class="product-grid destacados-grid">
+    <!-- PORTADA:ROPA:INICIO -->
+    <article class="card card-destacada" data-codigo="CONJUNTO-064">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('CONJUNTO-064')" style="cursor:pointer">
+        <img src="fotos/CONJUNTO-064-01.webp" alt="Conjunto deportivo de licra mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Conjunto</div></div>
+        <div class="card-model">Conjunto deportivo de licra mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 119.900</span></div></div>
+        <div class="card-details"><span>📏 Talla única</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2AConjunto%20deportivo%20de%20licra%20mujer%2A%20%28Ref%3A%20CONJUNTO-064%29%0ATallas%3A%20Talla%20%C3%BAnica%0APrecio%3A%20%2A%24%20119.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="CONJUNTO-064">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="CONJUNTO-065">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('CONJUNTO-065')" style="cursor:pointer">
+        <img src="fotos/CONJUNTO-065-01.webp" alt="Conjunto deportivo 3 piezas mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Conjunto</div></div>
+        <div class="card-model">Conjunto deportivo 3 piezas mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 129.900</span></div></div>
+        <div class="card-details"><span>📏 Talla única</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2AConjunto%20deportivo%203%20piezas%20mujer%2A%20%28Ref%3A%20CONJUNTO-065%29%0ATallas%3A%20Talla%20%C3%BAnica%0APrecio%3A%20%2A%24%20129.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="CONJUNTO-065">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="JEAN-003">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('JEAN-003')" style="cursor:pointer">
+        <img src="fotos/JEAN-003-01.webp" alt="Jean stretch skinny mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Jean</div></div>
+        <div class="card-model">Jean stretch skinny mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 149.900</span></div></div>
+        <div class="card-details"><span>📏 3 · 5 · 7 · 9 · 11 · 13</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2AJean%20stretch%20skinny%20mujer%2A%20%28Ref%3A%20JEAN-003%29%0ATallas%3A%203%20%C2%B7%205%20%C2%B7%207%20%C2%B7%209%20%C2%B7%2011%20%C2%B7%2013%0APrecio%3A%20%2A%24%20149.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="JEAN-003">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="JEAN-005">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('JEAN-005')" style="cursor:pointer">
+        <img src="fotos/JEAN-005-01.webp" alt="Jean baggy negro mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Jean</div></div>
+        <div class="card-model">Jean baggy negro mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 169.900</span></div></div>
+        <div class="card-details"><span>📏 3 · 5 · 7 · 9 · 11</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2AJean%20baggy%20negro%20mujer%2A%20%28Ref%3A%20JEAN-005%29%0ATallas%3A%203%20%C2%B7%205%20%C2%B7%207%20%C2%B7%209%20%C2%B7%2011%0APrecio%3A%20%2A%24%20169.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="JEAN-005">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="BODY-006">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('BODY-006')" style="cursor:pointer">
+        <img src="fotos/BODY-006-01.webp" alt="Body de malla mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Body</div></div>
+        <div class="card-model">Body de malla mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 129.900</span></div></div>
+        <div class="card-details"><span>📏 Talla única</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2ABody%20de%20malla%20mujer%2A%20%28Ref%3A%20BODY-006%29%0ATallas%3A%20Talla%20%C3%BAnica%0APrecio%3A%20%2A%24%20129.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="BODY-006">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="OVERSIZE-002">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('OVERSIZE-002')" style="cursor:pointer">
+        <img src="fotos/OVERSIZE-002-01.webp" alt="Camiseta oversize estampada mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Camiseta</div></div>
+        <div class="card-model">Camiseta oversize estampada mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 119.900</span></div></div>
+        <div class="card-details"><span>📏 S · M · L · XL</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2ACamiseta%20oversize%20estampada%20mujer%2A%20%28Ref%3A%20OVERSIZE-002%29%0ATallas%3A%20S%20%C2%B7%20M%20%C2%B7%20L%20%C2%B7%20XL%0APrecio%3A%20%2A%24%20119.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="OVERSIZE-002">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="CONJUNTO-061">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('CONJUNTO-061')" style="cursor:pointer">
+        <img src="fotos/CONJUNTO-061-01.webp" alt="Conjunto deportivo blusa y sudadera mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Conjunto</div></div>
+        <div class="card-model">Conjunto deportivo blusa y sudadera mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 169.900</span></div></div>
+        <div class="card-details"><span>📏 M · L · XL</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2AConjunto%20deportivo%20blusa%20y%20sudadera%20mujer%2A%20%28Ref%3A%20CONJUNTO-061%29%0ATallas%3A%20M%20%C2%B7%20L%20%C2%B7%20XL%0APrecio%3A%20%2A%24%20169.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="CONJUNTO-061">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="CONJUNTO-070">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('CONJUNTO-070')" style="cursor:pointer">
+        <img src="fotos/CONJUNTO-070-01.webp" alt="Conjunto deportivo blusa y sudadera mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Conjunto</div></div>
+        <div class="card-model">Conjunto deportivo blusa y sudadera mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 159.900</span></div></div>
+        <div class="card-details"><span>📏 M · L</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2AConjunto%20deportivo%20blusa%20y%20sudadera%20mujer%2A%20%28Ref%3A%20CONJUNTO-070%29%0ATallas%3A%20M%20%C2%B7%20L%0APrecio%3A%20%2A%24%20159.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="CONJUNTO-070">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="PIJAMA-002">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('PIJAMA-002')" style="cursor:pointer">
+        <img src="fotos/PIJAMA-002-01.webp" alt="Pijama en tela rib mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Pijama</div></div>
+        <div class="card-model">Pijama en tela rib mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 119.900</span></div></div>
+        <div class="card-details"><span>📏 Talla única</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2APijama%20en%20tela%20rib%20mujer%2A%20%28Ref%3A%20PIJAMA-002%29%0ATallas%3A%20Talla%20%C3%BAnica%0APrecio%3A%20%2A%24%20119.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="PIJAMA-002">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="CONJUNTO-076">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('CONJUNTO-076')" style="cursor:pointer">
+        <img src="fotos/CONJUNTO-076-01.webp" alt="Conjunto manga larga mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Conjunto</div></div>
+        <div class="card-model">Conjunto manga larga mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 149.900</span></div></div>
+        <div class="card-details"><span>📏 Talla única</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2AConjunto%20manga%20larga%20mujer%2A%20%28Ref%3A%20CONJUNTO-076%29%0ATallas%3A%20Talla%20%C3%BAnica%0APrecio%3A%20%2A%24%20149.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="CONJUNTO-076">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="BODY-007">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('BODY-007')" style="cursor:pointer">
+        <img src="fotos/BODY-007-01.webp" alt="Body básico negro mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Body</div></div>
+        <div class="card-model">Body básico negro mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 129.900</span></div></div>
+        <div class="card-details"><span>📏 Talla única</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2ABody%20b%C3%A1sico%20negro%20mujer%2A%20%28Ref%3A%20BODY-007%29%0ATallas%3A%20Talla%20%C3%BAnica%0APrecio%3A%20%2A%24%20129.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="BODY-007">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="CONJUNTO-067">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('CONJUNTO-067')" style="cursor:pointer">
+        <img src="fotos/CONJUNTO-067-01.webp" alt="Conjunto deportivo top y legging mujer" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Conjunto</div></div>
+        <div class="card-model">Conjunto deportivo top y legging mujer</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 189.900</span></div></div>
+        <div class="card-details"><span>📏 S · M · L</span></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2AConjunto%20deportivo%20top%20y%20legging%20mujer%2A%20%28Ref%3A%20CONJUNTO-067%29%0ATallas%3A%20S%20%C2%B7%20M%20%C2%B7%20L%0APrecio%3A%20%2A%24%20189.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="CONJUNTO-067">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <!-- PORTADA:ROPA:FIN -->
+    </div>
+    <div class="portada-mas"><button type="button" class="btn-portada-mas" onclick="window.irACatalogo&&irACatalogo('Ropa','Dama')">Ver más ropa de mujer →</button></div>
+  </section>
+
+  <!-- 3. PERFUMES -->
+  <section class="portada-seccion" id="perfumes">
+    <div class="collections-header">
+      <h2><span class="accent">Perfumes</span> y sets</h2>
+      <p>Para regalar o para ti</p>
+    </div>
+    <div class="product-grid destacados-grid">
+    <!-- PORTADA:PERFUMES:INICIO -->
+    <article class="card card-destacada" data-codigo="COMBO-024">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('COMBO-024')" style="cursor:pointer">
+        <img src="fotos/COMBO-024-01.webp" alt="Combo de regalo: perfume, body splash y caja" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Combo</div></div>
+        <div class="card-model">Combo de regalo: perfume, body splash y caja</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 169.900</span></div></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2ACombo%20de%20regalo%3A%20perfume%2C%20body%20splash%20y%20caja%2A%20%28Ref%3A%20COMBO-024%29%0APrecio%3A%20%2A%24%20169.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="COMBO-024">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="COMBO-035">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('COMBO-035')" style="cursor:pointer">
+        <img src="fotos/COMBO-035-01.webp" alt="Combo de regalo: perfume, body splash y caja con moño" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Combo</div></div>
+        <div class="card-model">Combo de regalo: perfume, body splash y caja con moño</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 169.900</span></div></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2ACombo%20de%20regalo%3A%20perfume%2C%20body%20splash%20y%20caja%20con%20mo%C3%B1o%2A%20%28Ref%3A%20COMBO-035%29%0APrecio%3A%20%2A%24%20169.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="COMBO-035">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="COMBO-031">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('COMBO-031')" style="cursor:pointer">
+        <img src="fotos/COMBO-031-01.webp" alt="Combo de regalo: perfume, mantequilla corporal y caja" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Combo</div></div>
+        <div class="card-model">Combo de regalo: perfume, mantequilla corporal y caja</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 129.900</span></div></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2ACombo%20de%20regalo%3A%20perfume%2C%20mantequilla%20corporal%20y%20caja%2A%20%28Ref%3A%20COMBO-031%29%0APrecio%3A%20%2A%24%20129.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="COMBO-031">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="COMBO-033">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('COMBO-033')" style="cursor:pointer">
+        <img src="fotos/COMBO-033-01.webp" alt="Set de regalo de cuidado corporal en caja" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Combo</div></div>
+        <div class="card-model">Set de regalo de cuidado corporal en caja</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 129.900</span></div></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2ASet%20de%20regalo%20de%20cuidado%20corporal%20en%20caja%2A%20%28Ref%3A%20COMBO-033%29%0APrecio%3A%20%2A%24%20129.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="COMBO-033">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="COMBO-036">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('COMBO-036')" style="cursor:pointer">
+        <img src="fotos/COMBO-036-01.webp" alt="Combo de perfume y body splash con bolsa de regalo" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Combo</div></div>
+        <div class="card-model">Combo de perfume y body splash con bolsa de regalo</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 169.900</span></div></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2ACombo%20de%20perfume%20y%20body%20splash%20con%20bolsa%20de%20regalo%2A%20%28Ref%3A%20COMBO-036%29%0APrecio%3A%20%2A%24%20169.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="COMBO-036">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="COMBO-037">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('COMBO-037')" style="cursor:pointer">
+        <img src="fotos/COMBO-037-01.webp" alt="Combo de perfume y body splash con bolsa de regalo y moño" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Combo</div></div>
+        <div class="card-model">Combo de perfume y body splash con bolsa de regalo y moño</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 169.900</span></div></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2ACombo%20de%20perfume%20y%20body%20splash%20con%20bolsa%20de%20regalo%20y%20mo%C3%B1o%2A%20%28Ref%3A%20COMBO-037%29%0APrecio%3A%20%2A%24%20169.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="COMBO-037">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="BIANCO-002">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('BIANCO-002')" style="cursor:pointer">
+        <img src="fotos/BIANCO-002-01.webp" alt="Perfume dulce y cremoso" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Perfume</div></div>
+        <div class="card-model">Perfume dulce y cremoso</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 139.900</span></div></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2APerfume%20dulce%20y%20cremoso%2A%20%28Ref%3A%20BIANCO-002%29%0APrecio%3A%20%2A%24%20139.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="BIANCO-002">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <article class="card card-destacada" data-codigo="CLIVE-004">
+      <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('CLIVE-004')" style="cursor:pointer">
+        <img src="fotos/CLIVE-004-01.webp" alt="Perfume intenso, elegante y dulce" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><div class="card-brand">Perfume</div></div>
+        <div class="card-model">Perfume intenso, elegante y dulce</div>
+        <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 159.900</span></div></div>
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2APerfume%20intenso%2C%20elegante%20y%20dulce%2A%20%28Ref%3A%20CLIVE-004%29%0APrecio%3A%20%2A%24%20159.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="CLIVE-004">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+    </article>
+    <!-- PORTADA:PERFUMES:FIN -->
+    </div>
+    <div class="portada-mas"><button type="button" class="btn-portada-mas" onclick="window.irACatalogo&&irACatalogo('Perfumes','')">Ver todos los perfumes →</button></div>
+  </section>
+
+  <!-- 4. CONFIANZA -->
+  <div class="cro-grid-3">
       <div class="cro-benefit-card">
         <div class="cro-benefit-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l1.5-7L9 8l7 3.5L20 17H3z"/><line x1="3" y1="17" x2="21" y2="17"/><path d="M9 8l1 4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg>
         </div>
         <div class="cro-benefit-text">
-          <h3>Materiales de Primera</h3>
-          <p>Suela ergonómica, costuras reforzadas. Cada par pasa revisión antes de despacharse.</p>
+          <h3>Fotos reales</h3>
+          <p>Ves lo que compras. Pide más fotos o detalles por WhatsApp antes de decidir.</p>
         </div>
       </div>
       <div class="cro-benefit-card">
@@ -3118,8 +3468,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
         </div>
         <div class="cro-benefit-text">
-          <h3>Garantía de Calidad</h3>
-          <p>Defecto de fábrica — lo cambiamos sin costo por WhatsApp.</p>
+          <h3>Cambios por talla</h3>
+          <p>Cambios por talla: escríbenos por WhatsApp.</p>
         </div>
       </div>
       <div class="cro-benefit-card">
@@ -3127,84 +3477,16 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
         <div class="cro-benefit-text">
-          <h3>Entrega 24–48h en Colombia</h3>
-          <p>Paga por Nequi (0% comisión) o Wompi. Envío a todo el país.</p>
+          <h3>Envío gratis a toda Colombia</h3>
+          <p>2 a 5 días hábiles. Paga por Nequi o transferencia.</p>
         </div>
       </div>
-    </div>
+  </div>
 
-    <!-- 3. COLECCIONES EDITORIALES -->
-    <section class="editorial-collections" id="colecciones">
-      <div class="collections-header">
-        <h2>Nuestras <span class="accent">Colecciones</span></h2>
-        <p>Cinco estilos. Un solo ritmo.</p>
-      </div>
-      <div class="collections-grid">
-        <!-- CIUDAD — col featured (izquierda, alto doble) -->
-        <div class="collection-card collection-featured" data-col="ciudad" data-initial="C" onclick="aplicarFiltroColeccion('ciudad')">
-          <img src="assets/editorial/ciudad.png" alt="" aria-hidden="true" loading="lazy">
-          <div class="collection-info">
-            <span class="collection-tag">★ Ciudad</span>
-            <div>
-              <h3>La Calle<br>Manda</h3>
-              <p>De la calle pa' la calle</p>
-            </div>
-            <span class="collection-chip">Nike · Adidas · Puma →</span>
-          </div>
-        </div>
-        <!-- RITMO -->
-        <div class="collection-card" data-col="ritmo" data-initial="R" onclick="aplicarFiltroColeccion('ritmo')">
-          <img src="assets/editorial/ritmo.png" alt="" aria-hidden="true" loading="lazy">
-          <div class="collection-info">
-            <span class="collection-tag">★ Ritmo</span>
-            <div>
-              <h3>El<br>Tumbao</h3>
-              <p>Pa' quien no para</p>
-            </div>
-            <span class="collection-chip">On Cloud · NB →</span>
-          </div>
-        </div>
-        <!-- FORMA -->
-        <div class="collection-card" data-col="forma" data-initial="F" onclick="aplicarFiltroColeccion('forma')">
-          <img src="assets/editorial/forma.png" alt="" aria-hidden="true" loading="lazy">
-          <div class="collection-info">
-            <span class="collection-tag">★ Forma</span>
-            <div>
-              <h3>Tu<br>Estilo</h3>
-              <p>Llevas lo que te queda</p>
-            </div>
-            <span class="collection-chip">New Balance · Vans →</span>
-          </div>
-        </div>
-        <!-- ELLE -->
-        <div class="collection-card" data-col="elle" data-initial="E" onclick="aplicarFiltroColeccion('elle')">
-          <img src="assets/editorial/elle.png" alt="" aria-hidden="true" loading="lazy">
-          <div class="collection-info">
-            <span class="collection-tag">★ Elle</span>
-            <div>
-              <h3>Ella<br>Pone</h3>
-              <p>La que dicta la moda</p>
-            </div>
-            <span class="collection-chip">Nike Dama · NB Dama →</span>
-          </div>
-        </div>
-        <!-- FIRMA -->
-        <div class="collection-card" data-col="firma" data-initial="J" onclick="aplicarFiltroColeccion('firma')">
-          <img src="assets/editorial/firma.png" alt="" aria-hidden="true" loading="lazy">
-          <div class="collection-info">
-            <span class="collection-tag">★ Firma</span>
-            <div>
-              <h3>El<br>Clásico</h3>
-              <p>Jordan. Original. Siempre.</p>
-            </div>
-            <span class="collection-chip">Air Jordan · Retros →</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
+  <!-- 5. CATÁLOGO COMPLETO (tenis y más) -->
+  <div class="collections-header portada-catalogo" id="catalogo">
+    <h2>Tenis <span class="accent">y más</span></h2>
+    <p>Catálogo completo</p>
   </div>
 
   <!-- MINI FILTER BAR — una línea, no sticky -->
@@ -3310,20 +3592,24 @@
   <div class="cro-faq-box" style="margin-top:40px;">
     <h3>Preguntas Frecuentes</h3>
     <details>
-      <summary>¿Cómo garantizan la calidad del calzado?</summary>
-      <p>Cada par tiene fotos reales del producto. Si quieres ver más ángulos o detalles antes de pedir, escríbenos por WhatsApp y te los compartimos al instante.</p>
+      <summary>¿Cómo sé que el producto es como en las fotos?</summary>
+      <p>Cada producto tiene fotos reales. Si quieres ver más ángulos o detalles antes de pedir, escríbenos por WhatsApp y te los compartimos.</p>
     </details>
     <details>
-      <summary>¿Cómo sé mi talla exacta antes de pedir?</summary>
-      <p>En nuestro chat te asesoramos según la longitud en centímetros de tu pie y el modelo que elijas. Si al llegar no te queda, el cambio de talla es 100% gratis.</p>
+      <summary>¿Cómo sé mi talla?</summary>
+      <p>Escríbenos por WhatsApp con tu talla habitual o tus medidas y te asesoramos. Cambios por talla: escríbenos por WhatsApp.</p>
     </details>
     <details>
       <summary>¿Cuáles son los tiempos de envío?</summary>
-      <p>24 horas en ciudades principales (Bogotá, Medellín, Cali, Barranquilla). 48 a 72 horas en el resto de municipios del país.</p>
+      <p>Envío gratis a toda Colombia, 2 a 5 días hábiles.</p>
     </details>
     <details>
       <summary>¿Qué métodos de pago aceptan?</summary>
-      <p>Aceptamos Nequi Bre-B, Botón Bancolombia, PSE y tarjetas de crédito/débito vía Wompi. El pago se confirma antes de despachar.</p>
+      <p>Nequi o transferencia bancaria. El pago se confirma antes de despachar.</p>
+    </details>
+    <details>
+      <summary>¿Cómo funcionan los cambios y devoluciones?</summary>
+      <p>Lee la <a href="cambios.html">política de cambios y devoluciones</a>, incluido el derecho de retracto.</p>
     </details>
   </div>
 
@@ -3331,7 +3617,13 @@
     <div class="site-footer-inner">
       <span class="site-footer-logo">Siavaran</span>
       <span class="site-footer-sep">·</span>
-      <a href="https://wa.me/573106935192" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://wa.me/573106935192" target="_blank" rel="noopener" data-lead="footer">WhatsApp</a>
+      <span class="site-footer-sep">·</span>
+      <a href="privacidad.html">Privacidad</a>
+      <span class="site-footer-sep">·</span>
+      <a href="terminos.html">Términos</a>
+      <span class="site-footer-sep">·</span>
+      <a href="cambios.html">Cambios y devoluciones</a>
       <span class="site-footer-sep">·</span>
       <span>© 2026</span>
     </div>
@@ -3558,8 +3850,8 @@ try { activeSeccion = multiSeccion ? (localStorage.getItem('calzado_seccion') ||
 if (!seccionCounts[activeSeccion]) activeSeccion = 'Zapatos';
 
 if ($('#titulo-catalogo')) $('#titulo-catalogo').textContent = 'Siavaran';
-if ($('#subtitulo-proveedor')) $('#subtitulo-proveedor').textContent = 'Calzado Deportivo · Envíos a todo Colombia';
-document.title = 'Siavaran | Calzado Deportivo · Envíos 24h Colombia';
+if ($('#subtitulo-proveedor')) $('#subtitulo-proveedor').textContent = 'Moda y Perfumes · Envío gratis a toda Colombia';
+document.title = 'Siavaran | Moda y Perfumes · Envío gratis a toda Colombia';
 
 // Section tabs
 if (multiSeccion) {

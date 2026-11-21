@@ -68,6 +68,13 @@ NOMBRES_MANUALES = {
     "BODY-007": ("Body básico negro mujer", "Talla única"),
     "OVERSIZE-002": ("Camiseta oversize estampada mujer", "S · M · L · XL"),
     "PIJAMA-002": ("Pijama en tela rib mujer", "Talla única"),
+    # Perfumes y sets de regalo destacados (descripción tomada de su ficha, sin marca).
+    "COMBO-024": ("Combo de regalo: perfume, body splash y caja", ""),
+    "COMBO-035": ("Combo de regalo: perfume, body splash y caja con moño", ""),
+    "COMBO-031": ("Combo de regalo: perfume, mantequilla corporal y caja", ""),
+    "COMBO-033": ("Set de regalo de cuidado corporal en caja", ""),
+    "COMBO-036": ("Combo de perfume y body splash con bolsa de regalo", ""),
+    "COMBO-037": ("Combo de perfume y body splash con bolsa de regalo y moño", ""),
     # Perfumes con descriptor propio (tomado de su ficha, sin marca).
     "AL-004": ("Perfume dulce y frutal", ""),
     "BIANCO-002": ("Perfume dulce y cremoso", ""),
@@ -79,6 +86,9 @@ NOMBRES_MANUALES = {
     "CLIVE-003": ("Perfume intenso y sofisticado", ""),
     "CLIVE-004": ("Perfume intenso, elegante y dulce", ""),
 }
+
+
+CATEGORIA_MANUAL = {"OVERSIZE-002": "Camiseta"}
 
 
 def _num(codigo: str) -> int:
@@ -102,6 +112,8 @@ def sanear_producto(p: dict) -> dict:
     else:
         pub["categoria"] = CATEGORIA_PUBLICA.get(categoria, categoria)
     pub["seccion"] = seccion
+    if codigo in CATEGORIA_MANUAL:
+        pub["categoria"] = CATEGORIA_MANUAL[codigo]
 
     venta = p.get("precio_venta")
     if venta is None and p.get("precio") is not None and not p.get("proveedor") and not p.get("descripcion_original"):
