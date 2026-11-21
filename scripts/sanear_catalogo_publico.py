@@ -1,181 +1,193 @@
 #!/usr/bin/env python3
-"""Quita datos internos del JSON embebido en index.html.
+"""Genera data/catalogo.json: el catálogo público de Siavaran, sin datos internos.
 
-Deja solo el precio de venta y los campos públicos del catálogo.
-Elimina, si reaparecen: costo del proveedor, margen, nombre o teléfono
-del proveedor, texto original (suele llevar el costo) y la referencia interna.
+Entrada: un JSON de productos (el del datalake, con costo/proveedor/marca, o el
+data/catalogo.json ya limpio). Salida: data/catalogo.json con solo campos públicos.
+
+Qué hace:
+  * Quita costo del proveedor, margen, nombre y teléfono del proveedor, texto
+    original (lleva el costo), referencia interna, marca y modelo.
+  * Crea `nombre` visible sin marcas de terceros (p. ej. "Tenis urbano hombre N.º 524").
+  * Reclasifica combos y sets (venían como "Ropa") a la sección Perfumes.
+  * Deja solo el precio de venta (`precio_venta`).
 
 Uso (desde la raíz del repo):
 
-    python3 scripts/sanear_catalogo_publico.py
-    python3 scripts/sanear_catalogo_publico.py ruta/al/index.html
+    python3 scripts/sanear_catalogo_publico.py                      # re-sanea data/catalogo.json
+    python3 scripts/sanear_catalogo_publico.py ruta/catalogo.json   # nuevo catálogo del datalake
 
-Idempotente. No reescribe el historial de git.
-
-La vista interna no debe vivir en este repo (GitHub Pages publica todo):
-generarla en didactic-octo-eureka con
-
-    python3 datalake.py unificar datalake/gold --salida tienda
-
-y abrir tienda/index.html en local. El HTML de clientes se genera con
-`--cliente` (whatsapp_catalogo.sanear_para_cliente). Este sitio ya tiene
-diseño propio: después de pegar productos nuevos aquí, vuelve a correr
-este script antes de publicar.
+Idempotente. No reescribe el historial de git. La vista interna (costos, calculadora)
+no vive en este repo: se genera en local en didactic-octo-eureka.
 """
 from __future__ import annotations
 
 import json
 import re
 import sys
+import zlib
 from pathlib import Path
 
+RAIZ = Path(__file__).resolve().parent.parent
+SALIDA = RAIZ / "data" / "catalogo.json"
+
 CAMPOS_PUBLICOS = (
-    "codigo",
-    "marca",
-    "modelo",
-    "categoria",
-    "seccion",
-    "genero",
-    "tallas",
-    "talla_min",
-    "talla_max",
-    "sistema_tallas",
-    "imagenes",
-    "videos",
-    "moneda",
-    "precio_venta",
-    "coleccion",
-    "fecha",
-    "en_oferta",
+    "codigo", "nombre", "categoria", "seccion", "genero",
+    "tallas", "talla_min", "talla_max", "sistema_tallas", "tallas_txt",
+    "imagenes", "videos", "moneda", "precio_venta", "fecha", "en_oferta", "ref",
 )
-
 CAMPOS_PROHIBIDOS = (
-    "precio",
-    "precio_anterior",
-    "proveedor",
-    "remitente",
-    "descripcion_original",
-    "referencia",
-    "ganancia",
-    "margen",
+    "precio", "precio_anterior", "proveedor", "remitente", "descripcion_original",
+    "referencia", "ganancia", "margen", "marca", "modelo", "coleccion",
 )
 
-# Rastros de las vistas internas o de la fórmula de margen que no deben
-# volver a publicarse. No se listan teléfonos ni nombres de proveedores.
-LEAK_PATTERNS = [
-    (r"precioVentaFormula", "fórmula de margen"),
-    (r"ENVIO_PAUTA", "constante de margen"),
-    (r"getProfit\s*=", "cálculo de ganancia"),
-    (r"\?modo=interno", "vista interna por URL"),
-    (r"\?modo=mayorista", "vista mayorista por URL"),
-    (r"id=\"calc-costo\"", "calculadora de costos"),
-    (r"id=\"filtro-proveedor\"", "filtro de proveedor"),
-    (r"id=\"filtro-ganancia\"", "filtro de ganancia"),
-    (r"Texto original del proveedor", "texto del proveedor en el modal"),
-]
+# Categoría pública (genérica, sin marcas) a partir de la del datalake.
+CATEGORIA_PUBLICA = {
+    "Crocs": "Zuecos", "Sueco": "Zuecos", "Bota": "Botas", "Chancla": "Chancletas",
+    "Guayo": "Guayos", "Sandalia": "Sandalias", "Ropa": "Prenda", "Cargo": "Pantalón cargo",
+}
+# Cómo se llama cada tipo en el nombre visible.
+TIPO_NOMBRE = {
+    "Tenis": "Tenis urbano", "Zuecos": "Zuecos", "Botas": "Botas", "Chancletas": "Chancletas",
+    "Guayos": "Guayos", "Sandalias": "Sandalias", "Calzado": "Calzado", "Perfume": "Perfume importado",
+    "Combo": "Combo de perfume y cuidado corporal", "Set": "Set de fragancias", "Prenda": "Prenda",
+    "Bolso": "Bolso", "Leggins": "Leggins", "Pantaloneta": "Pantaloneta", "Pantalón cargo": "Pantalón cargo",
+}
+GENERO_TXT = {"Dama": "mujer", "Hombre": "hombre", "Niño": "niño", "Unisex": "unisex"}
+
+# Nombres y tallas escritos a mano para los destacados de la portada (sin marcas).
+NOMBRES_MANUALES = {
+    "CONJUNTO-064": ("Conjunto deportivo de licra mujer", "Talla única"),
+    "CONJUNTO-065": ("Conjunto deportivo 3 piezas mujer", "Talla única"),
+    "CONJUNTO-063": ("Conjunto jogger beige mujer", "Talla única"),
+    "CONJUNTO-061": ("Conjunto deportivo blusa y sudadera mujer", "M · L · XL"),
+    "CONJUNTO-070": ("Conjunto deportivo blusa y sudadera mujer", "M · L"),
+    "CONJUNTO-076": ("Conjunto manga larga mujer", "Talla única"),
+    "CONJUNTO-067": ("Conjunto deportivo top y legging mujer", "S · M · L"),
+    "JEAN-003": ("Jean stretch skinny mujer", "3 · 5 · 7 · 9 · 11 · 13"),
+    "JEAN-005": ("Jean baggy negro mujer", "3 · 5 · 7 · 9 · 11"),
+    "BODY-006": ("Body de malla mujer", "Talla única"),
+    "BODY-007": ("Body básico negro mujer", "Talla única"),
+    "OVERSIZE-002": ("Camiseta oversize estampada mujer", "S · M · L · XL"),
+    "PIJAMA-002": ("Pijama en tela rib mujer", "Talla única"),
+    # Perfumes y sets de regalo destacados (descripción tomada de su ficha, sin marca).
+    "COMBO-024": ("Combo de regalo: perfume, body splash y caja", ""),
+    "COMBO-035": ("Combo de regalo: perfume, body splash y caja con moño", ""),
+    "COMBO-031": ("Combo de regalo: perfume, mantequilla corporal y caja", ""),
+    "COMBO-033": ("Set de regalo de cuidado corporal en caja", ""),
+    "COMBO-036": ("Combo de perfume y body splash con bolsa de regalo", ""),
+    "COMBO-037": ("Combo de perfume y body splash con bolsa de regalo y moño", ""),
+    # Perfumes con descriptor propio (tomado de su ficha, sin marca).
+    "AL-004": ("Perfume dulce y frutal", ""),
+    "BIANCO-002": ("Perfume dulce y cremoso", ""),
+    "ECLAIRE-002": ("Perfume dulce y seductor mujer", ""),
+    "ISLAND-002": ("Perfume fresco y tropical", ""),
+    "MOSCHINO-003": ("Perfume fresco y divertido mujer", ""),
+    "THANK-002": ("Perfume dulce y juvenil", ""),
+    "VICTORIA-002": ("Perfume cálido y envolvente", ""),
+    "CLIVE-003": ("Perfume intenso y sofisticado", ""),
+    "CLIVE-004": ("Perfume intenso, elegante y dulce", ""),
+}
 
 
-def _extract_productos(text: str) -> tuple[int, int, list]:
-    m = re.search(r"const PRODUCTOS = ", text)
-    if not m:
-        raise SystemExit("No se encontró 'const PRODUCTOS = ' en el HTML")
-    i = text.find("[", m.start())
-    depth = 0
-    in_str = False
-    esc = False
-    quote = None
-    end = None
-    for j, ch in enumerate(text[i:], start=i):
-        if in_str:
-            if esc:
-                esc = False
-            elif ch == "\\":
-                esc = True
-            elif ch == quote:
-                in_str = False
-            continue
-        if ch in ('"', "'"):
-            in_str = True
-            quote = ch
-            continue
-        if ch == "[":
-            depth += 1
-        elif ch == "]":
-            depth -= 1
-            if depth == 0:
-                end = j
-                break
-    if end is None:
-        raise SystemExit("No se pudo cerrar el array PRODUCTOS")
-    return i, end, json.loads(text[i : end + 1])
+CATEGORIA_MANUAL = {"OVERSIZE-002": "Camiseta"}
 
 
-def sanear_productos(productos: list[dict]) -> list[dict]:
-    limpios = []
-    for p in productos:
-        limpio = {k: p[k] for k in CAMPOS_PUBLICOS if k in p}
-        venta = p.get("precio_venta")
-        # Catálogo ya saneado al estilo del generador: precio == venta, sin costo.
-        if venta is None and p.get("precio") is not None and not p.get("proveedor") and not p.get("descripcion_original"):
-            venta = p.get("precio")
-        if venta is not None:
-            limpio["precio_venta"] = venta
-        limpios.append(limpio)
-    return limpios
+# Prefijos del código que son un tipo de prenda y no una marca: la referencia pública
+# conserva el código. Para el resto (prefijo de marca o de proveedor) la referencia
+# pública es "SV-" + 5 caracteres estables derivados del código, sin nombres de marcas.
+PREFIJOS_GENERICOS = {
+    "CONJUNTO", "CAMISETA", "COMBO", "BERMUDA", "CALZADO", "SANDALIA", "CAMIBUSO", "PANTALONETA",
+    "GORRA", "JEAN", "BODY", "SUDADERA", "BLUSA", "CHAQUETA", "CAMISA", "CHANCLA", "MEDIAS", "SET",
+    "BOTA", "CALENTADOR", "CAMISILLA", "CARGO", "ENTERIZO", "KIT", "LEGGINS", "OVERSIZE", "PIJAMA",
+}
 
 
-def verificar(text: str, productos: list[dict]) -> None:
-    errores = []
-    keys = set()
-    for p in productos:
-        keys.update(p.keys())
-    prohibidos = keys.intersection(CAMPOS_PROHIBIDOS)
-    if prohibidos:
-        errores.append(f"campos prohibidos en PRODUCTOS: {sorted(prohibidos)}")
-    for pat, label in LEAK_PATTERNS:
-        if re.search(pat, text):
-            errores.append(f"queda '{label}' en el archivo publicado")
-    # Teléfonos +57 distintos al WhatsApp público de la tienda
-    tienda = "573106935192"
-    for m in re.finditer(r"\+57[\s\-]*\d[\d\s\-]{7,}", text):
-        digits = re.sub(r"\D", "", m.group())
-        if digits != tienda:
-            errores.append(f"teléfono que no es el de la tienda: {m.group()!r}")
-    if "wa.me/573106935192" not in text:
-        errores.append("faltó el WhatsApp público de la tienda")
-    if "const PRODUCTOS = " not in text:
-        errores.append("faltó PRODUCTOS")
-    if "function openWhatsAppOrder" not in text:
-        errores.append("faltó openWhatsAppOrder")
-    if "function toggleFavorite" not in text:
-        errores.append("faltó favoritos")
-    if "cro-faq-box" not in text:
-        errores.append("faltó el FAQ")
-    if "getSalePrice" not in text:
-        errores.append("faltó getSalePrice")
-    if errores:
-        raise SystemExit("Verificación fallida:\n- " + "\n- ".join(errores))
-    print(f"OK: {len(productos)} productos, campos {sorted(keys)}")
+def ref_publica(codigo: str) -> str:
+    prefijo = re.sub(r"-\d+$", "", codigo)
+    if prefijo in PREFIJOS_GENERICOS:
+        return codigo
+    h = zlib.crc32(codigo.encode("utf-8"))
+    return "SV-" + _b36(h)[-5:].rjust(5, "0").upper()
+
+
+def _b36(n: int) -> str:
+    cifras = "0123456789abcdefghijklmnopqrstuvwxyz"
+    out = ""
+    while n:
+        n, r = divmod(n, 36)
+        out = cifras[r] + out
+    return out or "0"
+
+
+def _num(codigo: str) -> int:
+    m = re.search(r"(\d+)$", codigo or "")
+    return int(m.group(1)) if m else 0
+
+
+def _es_perfume(p: dict) -> bool:
+    # Los "Combo" y "Set" del datalake son siempre de perfume (+ crema, splash o caja de regalo).
+    return (p.get("seccion") == "Perfumes" or p.get("categoria") in ("Perfume", "Combo", "Set"))
+
+
+def sanear_producto(p: dict) -> dict:
+    codigo = p["codigo"]
+    categoria = p.get("categoria") or ""
+    pub = {k: p[k] for k in CAMPOS_PUBLICOS if k in p}
+    seccion = p.get("seccion") or "Zapatos"
+    if _es_perfume(p):
+        seccion = "Perfumes"
+        pub["categoria"] = "Perfume" if categoria not in ("Combo", "Set") else categoria
+    else:
+        pub["categoria"] = CATEGORIA_PUBLICA.get(categoria, categoria)
+    pub["seccion"] = seccion
+    if codigo in CATEGORIA_MANUAL:
+        pub["categoria"] = CATEGORIA_MANUAL[codigo]
+
+    venta = p.get("precio_venta")
+    if venta is None and p.get("precio") is not None and not p.get("proveedor") and not p.get("descripcion_original"):
+        venta = p.get("precio")   # catálogo ya saneado al estilo del generador
+    if venta is not None:
+        pub["precio_venta"] = venta
+
+    if codigo in NOMBRES_MANUALES:
+        pub["nombre"], tt = NOMBRES_MANUALES[codigo]
+        if tt:
+            pub["tallas_txt"] = tt
+    elif not p.get("nombre"):
+        tipo = TIPO_NOMBRE.get(pub["categoria"], pub["categoria"])
+        g = GENERO_TXT.get(p.get("genero") or "", "")
+        pub["nombre"] = f"{tipo}{' ' + g if g else ''} N.º {_num(codigo)}"
+    ref = ref_publica(codigo)
+    if ref != codigo:
+        pub["ref"] = ref
+    else:
+        pub.pop("ref", None)
+    return pub
+
+
+def verificar(datos: list[dict]) -> None:
+    claves = set().union(*(p.keys() for p in datos))
+    malos = claves.intersection(CAMPOS_PROHIBIDOS)
+    if malos:
+        raise SystemExit(f"campos prohibidos en el catálogo público: {sorted(malos)}")
+    texto = json.dumps(datos, ensure_ascii=False)
+    for pat in (r"\+57[\s\d]{8,}", r"Anita"):
+        if re.search(pat, texto):
+            raise SystemExit(f"rastro del proveedor en el catálogo público: {pat}")
+    refs = [p.get("ref") or p["codigo"] for p in datos]
+    if len(set(refs)) != len(refs):
+        raise SystemExit("referencias públicas repetidas")
+    print(f"OK: {len(datos)} productos, campos {sorted(claves)}")
 
 
 def main() -> int:
-    ruta = Path(sys.argv[1] if len(sys.argv) > 1 else "index.html")
-    if not ruta.is_absolute():
-        cand = Path(__file__).resolve().parent.parent / ruta
-        if cand.exists():
-            ruta = cand
-        else:
-            ruta = Path.cwd() / ruta
-    text = ruta.read_text(encoding="utf-8")
-    start, end, productos = _extract_productos(text)
-    print(f"Leídos {len(productos)} productos de {ruta}")
-    limpios = sanear_productos(productos)
-    datos_js = json.dumps(limpios, ensure_ascii=False, separators=(", ", ": ")).replace("</", "<\\/")
-    text = text[:start] + datos_js + text[end + 1 :]
-    _, _, otra_vez = _extract_productos(text)
-    verificar(text, otra_vez)
-    ruta.write_text(text, encoding="utf-8")
-    print(f"Escrito {ruta} ({len(text):,} bytes)")
+    entrada = Path(sys.argv[1]) if len(sys.argv) > 1 else SALIDA
+    datos = json.loads(entrada.read_text(encoding="utf-8"))
+    limpios = [sanear_producto(p) for p in datos]
+    verificar(limpios)
+    SALIDA.parent.mkdir(parents=True, exist_ok=True)
+    SALIDA.write_text(json.dumps(limpios, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"Escrito {SALIDA} ({SALIDA.stat().st_size:,} bytes)")
     return 0
 
 
