@@ -9,7 +9,7 @@ Reglas que respeta el script:
 - Nombres, precios, tallas y fotos salen del catálogo. Nada se inventa.
 - Escribe buscar/<slug>/index.html, buscar/index.html (hub) y actualiza sitemap.xml.
 """
-import html, json, re, shutil, sys
+import html, json, re, shutil, sys, unicodedata
 from pathlib import Path
 from urllib.parse import quote
 
@@ -88,8 +88,8 @@ PAGINAS = [
   h1="Bodys para mujer",
   desc="Bodys para mujer: básico negro, de malla, halter y más. Fotos reales, precio visible y envío a toda Colombia. Pide por WhatsApp.",
   intro=["Un body es de las prendas más fáciles de combinar: con jeans, con falda o con un pantalón de vestir. Estos son los bodys que tenemos ahora en el catálogo.",
-         "Hay uno básico negro, uno de malla, uno con espalda abierta y otros con detalles. Algunos vienen en talla única; en los demás te confirmamos tallas por WhatsApp."],
-  consejos=["Mira la talla indicada en cada tarjeta: si dice talla única, se adapta a varias medidas.",
+         "Hay uno básico negro, uno de malla, uno con espalda abierta y otros con detalles. Si la tarjeta trae talla, la verás ahí; si no, te confirmamos medidas por WhatsApp."],
+  consejos=["Si la tarjeta muestra talla, úsala de guía; si no aparece, escríbenos por WhatsApp y te ayudamos con las medidas.",
             "Te confirmamos el tiempo y el costo de envío según tu ciudad. Cambios por talla, escribiéndonos por WhatsApp."],
   prods=["BODY-007","BODY-006","BODY-005","BODY-004","BODY-008"]),
  dict(slug="ropa-comoda-para-mujer", grupo="Ropa de mujer",
@@ -98,7 +98,7 @@ PAGINAS = [
   desc="Conjuntos de manga larga y de pantalón de lunares, sudadera ancha y pijama para mujer. Envío a toda Colombia; te confirmamos el tiempo y el costo según tu ciudad. Pide por WhatsApp.",
   intro=["Para estar en casa, viajar o ir a la universidad sin sentirte incómoda: un conjunto de manga larga, un conjunto con pantalón de lunares y camiseta estampada, una sudadera de corte ancho y una pijama.",
          "Todo con foto real y precio visible. Pides por WhatsApp y te lo enviamos a tu casa; te confirmamos el tiempo y el costo según tu ciudad."],
-  consejos=["El conjunto de manga larga y la pijama vienen en talla única; en los demás te confirmamos tallas por WhatsApp.",
+  consejos=["Si tienes duda con la talla, escríbenos por WhatsApp y te ayudamos.",
             "Si dudas entre dos opciones, mándanos las fotos por WhatsApp y te ayudamos a decidir."],
   prods=["CONJUNTO-076","CONJUNTO-072","SUDADERA-010","PIJAMA-002"]),
  dict(slug="perfume-para-regalo", grupo="Perfumes y regalos",
@@ -183,10 +183,17 @@ def nombre(x):
         return n
     return n + " para mujer"
 
+def es_talla_unica(val):
+    n = unicodedata.normalize("NFKD", str(val or ""))
+    n = "".join(c for c in n if not unicodedata.combining(c)).strip().lower()
+    n = " ".join(n.split())
+    return n in {"u", "unica", "talla unica", "talla u"}
+
 def tallas(x):
-    if x.get("tallas_txt"):
-        return x["tallas_txt"]
-    return ""
+    t = x.get("tallas_txt") or ""
+    if not t or es_talla_unica(t):
+        return ""
+    return t
 
 def wa_producto(x):
     t = tallas(x)

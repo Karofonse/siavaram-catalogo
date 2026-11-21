@@ -14,6 +14,7 @@ import html
 import json
 import re
 import urllib.parse
+import unicodedata
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -36,6 +37,14 @@ ICONO_WA = ('<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"
             '1.746 5.634l-.999 3.648 3.742-.981z"/></svg>')
 
 
+
+def es_talla_unica(val) -> bool:
+    n = unicodedata.normalize("NFKD", str(val or ""))
+    n = "".join(c for c in n if not unicodedata.combining(c)).strip().lower()
+    n = " ".join(n.split())
+    return n in {"u", "unica", "talla unica", "talla u"}
+
+
 def fmt(n: int) -> str:
     return "$ " + f"{n:,}".replace(",", ".")
 
@@ -44,6 +53,8 @@ def tarjeta(p: dict) -> str:
     nombre = html.escape(p["nombre"])
     precio = fmt(p["precio_venta"])
     talla = p.get("tallas_txt") or ""
+    if es_talla_unica(talla):
+        talla = ""
     msg = f"Hola, quiero pedir:\n*{p['nombre']}* (Ref: {p.get('ref') or p['codigo']})\n"
     if talla:
         msg += f"Tallas: {talla}\n"
