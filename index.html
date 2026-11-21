@@ -338,6 +338,14 @@
   }
   .header-actions .btn:hover { background: rgba(128,128,128,0.12); }
   .header-actions .btn-fav { position: relative; }
+  .header-actions .btn-guias {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: inherit;
+    white-space: nowrap;
+  }
   .btn {
     display: inline-flex;
     align-items: center;
@@ -2342,6 +2350,23 @@
     box-shadow: 0 8px 28px rgba(196,54,5,0.55);
     background: #a82e04;
   }
+  .editorial-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+  a.editorial-hero-cta-wa { text-decoration: none; box-sizing: border-box; }
+  .editorial-hero-cta-sec {
+    background: transparent;
+    color: #ffffff;
+    border: 1.5px solid rgba(255,255,255,0.75);
+  }
+  .editorial-hero-cta-sec:hover {
+    background: rgba(255,255,255,0.12);
+    box-shadow: none;
+    color: #ffffff;
+  }
 
   @media (max-width: 480px) {
     .editorial-hero-title {
@@ -2634,6 +2659,7 @@
     .hero-top, .hero-bottom { max-width: 100%; text-align: center; width: 100%; }
     .editorial-eyebrow { font-size: 10px; margin-bottom: 8px; letter-spacing: 0.15em; }
     .editorial-hero-cta { align-self: center; }
+    .editorial-hero-actions { justify-content: center; }
     .editorial-hero-title { font-size: 42px; }
     .editorial-hero-sub { font-size: 15px; font-weight: 600; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7); margin-bottom: 14px; }
     .editorial-hero-cta { font-size: 14px; padding: 11px 22px; }
@@ -3256,6 +3282,7 @@
         </div>
       </a>
       <div class="header-actions">
+        <a class="btn btn-guias" href="buscar/" title="Guías de compra">Guías</a>
         <button class="btn btn-fav" id="btn-ver-favoritos" title="Ver lista de favoritos">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           <span>Favoritos</span>
@@ -3283,7 +3310,10 @@
       </div>
       <div class="hero-bottom">
         <p class="editorial-hero-sub">Moda y perfumes para ella. Pide por WhatsApp.</p>
-        <button class="editorial-hero-cta" type="button" onclick="document.getElementById('ropa-mujer').scrollIntoView({behavior:'smooth'})">Ver prendas ↓</button>
+        <div class="editorial-hero-actions">
+          <a class="editorial-hero-cta editorial-hero-cta-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%20una%20prenda%20de%20Siavaran" target="_blank" rel="noopener noreferrer" data-lead="hero-wa">Pedir por WhatsApp</a>
+          <button class="editorial-hero-cta editorial-hero-cta-sec" type="button" onclick="document.getElementById('ropa-mujer').scrollIntoView({behavior:'smooth'})">Ver prendas ↓</button>
+        </div>
       </div>
     </div>
   </section>
