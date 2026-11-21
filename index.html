@@ -6,8 +6,36 @@
 <title>Siavaran | Moda y Perfumes · Envío gratis a toda Colombia</title>
 <meta name="description" content="Ropa de mujer y perfumes importados con envío gratis a toda Colombia, 2 a 5 días hábiles. Pide por WhatsApp y paga por Nequi o transferencia.">
 <link rel="canonical" href="https://siavaran.com/">
+<link rel="icon" href="logos/logo-siavaran.webp" type="image/webp">
 <link rel="preload" href="data/catalogo.json" as="fetch" crossorigin="anonymous">
 <link rel="preload" href="assets/editorial/hero-mujer.webp" as="image" media="(min-width: 581px)">
+
+<!-- Meta Pixel: inactivo mientras PIXEL_ID sea el marcador. Reemplaza 'PIXEL_ID' por el ID numérico real de tu Pixel. -->
+<script>
+(function () {
+  var PIXEL_ID = 'PIXEL_ID';
+  var activo = /^[0-9]{8,20}$/.test(PIXEL_ID);
+  window.svPixelActivo = activo;
+  if (activo) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+  // Lead: se dispara al tocar cualquier botón que abre WhatsApp.
+  window.svLead = function (origen, producto) {
+    if (!window.svPixelActivo || typeof window.fbq !== 'function') return;
+    var datos = { content_category: origen || 'whatsapp' };
+    if (producto) { datos.content_name = producto; }
+    window.fbq('track', 'Lead', datos);
+  };
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[data-lead], a[href*="wa.me"]');
+    if (!a) return;
+    if (a.classList.contains('btn-card-wa')) window.svLead('tarjeta', a.getAttribute('data-lead'));
+    else window.svLead(a.getAttribute('data-lead') || 'whatsapp');
+  }, true);
+})();
+</script>
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
@@ -3095,7 +3123,7 @@
   <div class="header-inner">
     <div class="header-top">
       <a href="#" class="brand" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
-        <div class="brand-icon"><img src="logos/logo-siavaran.png" alt="Siavaran" width="52" height="52" style="display:block;object-fit:contain;"></div>
+        <div class="brand-icon"><img src="logos/logo-siavaran.webp" alt="Siavaran" width="52" height="52" decoding="async" style="display:block;object-fit:contain;"></div>
         <div class="brand-text">
           <h1 id="titulo-catalogo">Siavaran</h1>
           <p id="subtitulo-proveedor">Moda y Perfumes · Envío gratis a toda Colombia</p>
@@ -3427,7 +3455,7 @@
         <div class="card-title-row"><div class="card-brand">Perfume</div></div>
         <div class="card-model">Perfume dulce y cremoso</div>
         <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 139.900</span></div></div>
-        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2APerfume%20dulce%20y%20cremoso%2A%20%28Ref%3A%20BIANCO-002%29%0APrecio%3A%20%2A%24%20139.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="BIANCO-002">
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2APerfume%20dulce%20y%20cremoso%2A%20%28Ref%3A%20SV-K0ZP6%29%0APrecio%3A%20%2A%24%20139.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="SV-K0ZP6">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
           <span>Pedir por WhatsApp</span>
         </a>
@@ -3441,7 +3469,7 @@
         <div class="card-title-row"><div class="card-brand">Perfume</div></div>
         <div class="card-model">Perfume intenso, elegante y dulce</div>
         <div class="card-pricing"><div class="price-block sale"><span class="price-value">$ 159.900</span></div></div>
-        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2APerfume%20intenso%2C%20elegante%20y%20dulce%2A%20%28Ref%3A%20CLIVE-004%29%0APrecio%3A%20%2A%24%20159.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="CLIVE-004">
+        <a class="btn-card-wa" href="https://wa.me/573106935192?text=Hola%2C%20quiero%20pedir%3A%0A%2APerfume%20intenso%2C%20elegante%20y%20dulce%2A%20%28Ref%3A%20SV-5R24I%29%0APrecio%3A%20%2A%24%20159.900%20COP%2A%0A%0A%C2%BFEst%C3%A1%20disponible%3F" target="_blank" rel="noopener noreferrer" data-lead="SV-5R24I">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
           <span>Pedir por WhatsApp</span>
         </a>
@@ -4202,7 +4230,7 @@ function renderGrid(reset = false) {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         </button>
         ${hasPhotos
-          ? `<img src="${p.imagenes[0]}" alt="${esc(p.nombre)}" loading="lazy" class="card-main-img card-img" data-img="${p.imagenes[0]}">`
+          ? `<img src="${p.imagenes[0]}" alt="${esc(p.nombre)}" loading="lazy" decoding="async" class="card-main-img card-img" data-img="${p.imagenes[0]}">`
           : `<div class="card-img-placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.3">
                 <path d="M2 16l4-8 4 4 4-6 4 4v6H2z"/>
@@ -4265,10 +4293,11 @@ function openWhatsAppOrder(prod) {
       return `${card.querySelector('h4').textContent.trim()} (${cb.parentElement.textContent.trim()})`;
     });
 
-  let text = `Hola, quiero pedir:\n*${prod.nombre}* (Ref: ${prod.codigo})\n${tallaTxt}\nPrecio: *${fmt(precioV)} COP*`;
+  let text = `Hola, quiero pedir:\n*${prod.nombre}* (Ref: ${refDe(prod)})\n${tallaTxt}\nPrecio: *${fmt(precioV)} COP*`;
   if (extras.length) text += `\n\nExtras:\n${extras.map(e => `• ${e}`).join('\n')}`;
   text += '\n\n¿Está disponible?';
 
+  if (window.svLead) window.svLead('modal-producto', prod && refDe(prod));
   window.open(`https://wa.me/573106935192?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
 }
 
@@ -4329,7 +4358,7 @@ function openModal(prod) {
   modalMediaIdx = 0;
 
   $('#modal-title').textContent = prod.nombre;
-  $('#modal-code').textContent = prod.codigo;
+  $('#modal-code').textContent = refDe(prod);
   if ($('#modal-gender')) $('#modal-gender').textContent = prod.genero || '—';
   if ($('#modal-category')) $('#modal-category').textContent = prod.categoria || '—';
   if ($('#modal-collection')) $('#modal-collection').textContent = prod.coleccion || '—';
@@ -4374,7 +4403,7 @@ function openModal(prod) {
   // Mostrar/ocultar upsells según categoría (solo calzado)
   const upsellGrid = document.querySelector('#modal-detalle .cro-upsell-grid');
   if (upsellGrid) upsellGrid.style.display = CATS_CALZADO_MODAL.has(prod.categoria) ? '' : 'none';
-  history.replaceState({codigo: prod.codigo}, '', location.pathname + '?p=' + encodeURIComponent(prod.codigo));
+  history.replaceState({codigo: prod.codigo}, '', location.pathname + '?p=' + encodeURIComponent(refDe(prod)));
 
   // Favorite button in modal
   const isFav = favorites.has(prod.codigo);
@@ -4537,7 +4566,7 @@ document.getElementById('btn-compartir')?.addEventListener('click', async () => 
   if (!modalProduct) return;
   const nombre = modalProduct.nombre;
   const precio = fmt(getSalePrice(modalProduct));
-  const url = location.origin + location.pathname + '?p=' + encodeURIComponent(modalProduct.codigo);
+  const url = location.origin + location.pathname + '?p=' + encodeURIComponent(refDe(modalProduct));
   const texto = `${nombre} — ${precio} | Siavaran\n${url}`;
   if (navigator.share) {
     await navigator.share({ title: nombre, text: nombre, url }).catch(() => {});
@@ -4664,13 +4693,14 @@ $('#btn-copiar-pedido-wa')?.addEventListener('click', () => {
     const pv = getSalePrice(p);
     total += pv || 0;
     const tallasTxt = p.talla_min != null ? `${p.talla_min} al ${p.talla_max}` : (p.tallas?.length ? p.tallas.join(', ') : '');
-    lines.push(`${idx + 1}. *${p.nombre}* (${p.codigo})`);
+    lines.push(`${idx + 1}. *${p.nombre}* (${refDe(p)})`);
     lines.push(`   💰 ${fmt(pv)}${tallasTxt ? ` | Tallas: ${tallasTxt}` : ''}`);
   });
   lines.push('----------------------------------------');
   lines.push(`📦 *Total: $ ${total.toLocaleString('es-CO')} COP* (${favItems.length} productos)`);
   lines.push('\nHola, quiero realizar el pedido de estos modelos seleccionados en la tienda. ¿Me confirman disponibilidad?');
 
+  if (window.svLead) window.svLead('favoritos');
   window.open(`https://wa.me/573106935192?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener,noreferrer');
 });
 
@@ -4755,11 +4785,14 @@ function updateFiltrosBadge() {
 syncFavoritesUI();
 applyFilters();
 
+// Referencia pública: nunca muestra el prefijo interno del código.
+function refDe(p) { return p.ref || p.codigo; }
+
 // Deep-link: auto-open modal if ?p= is in URL
 (function() {
   const pCodigo = urlParams.get('p');
   if (pCodigo) {
-    const prod = PRODUCTOS.find(p => p.codigo === pCodigo);
+    const prod = PRODUCTOS.find(p => p.codigo === pCodigo || p.ref === pCodigo);
     if (prod) setTimeout(() => openModal(prod), 300);
   }
 })();

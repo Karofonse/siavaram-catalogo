@@ -44,7 +44,7 @@ def tarjeta(p: dict) -> str:
     nombre = html.escape(p["nombre"])
     precio = fmt(p["precio_venta"])
     talla = p.get("tallas_txt") or ""
-    msg = f"Hola, quiero pedir:\n*{p['nombre']}* (Ref: {p['codigo']})\n"
+    msg = f"Hola, quiero pedir:\n*{p['nombre']}* (Ref: {p.get('ref') or p['codigo']})\n"
     if talla:
         msg += f"Tallas: {talla}\n"
     msg += f"Precio: *{precio} COP*\n\n¿Está disponible?"
@@ -60,7 +60,7 @@ def tarjeta(p: dict) -> str:
         <div class="card-title-row"><div class="card-brand">{html.escape(p["categoria"])}</div></div>
         <div class="card-model">{nombre}</div>
         <div class="card-pricing"><div class="price-block sale"><span class="price-value">{precio}</span></div></div>{det}
-        <a class="btn-card-wa" href="{html.escape(url)}" target="_blank" rel="noopener noreferrer" data-lead="{cod}">
+        <a class="btn-card-wa" href="{html.escape(url)}" target="_blank" rel="noopener noreferrer" data-lead="{html.escape(p.get('ref') or p['codigo'])}">
           {ICONO_WA}
           <span>Pedir por WhatsApp</span>
         </a>

@@ -24,6 +24,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import zlib
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -32,7 +33,7 @@ SALIDA = RAIZ / "data" / "catalogo.json"
 CAMPOS_PUBLICOS = (
     "codigo", "nombre", "categoria", "seccion", "genero",
     "tallas", "talla_min", "talla_max", "sistema_tallas", "tallas_txt",
-    "imagenes", "videos", "moneda", "precio_venta", "fecha", "en_oferta",
+    "imagenes", "videos", "moneda", "precio_venta", "fecha", "en_oferta", "ref",
 )
 CAMPOS_PROHIBIDOS = (
     "precio", "precio_anterior", "proveedor", "remitente", "descripcion_original",
@@ -91,6 +92,33 @@ NOMBRES_MANUALES = {
 CATEGORIA_MANUAL = {"OVERSIZE-002": "Camiseta"}
 
 
+# Prefijos del código que son un tipo de prenda y no una marca: la referencia pública
+# conserva el código. Para el resto (prefijo de marca o de proveedor) la referencia
+# pública es "SV-" + 5 caracteres estables derivados del código, sin nombres de marcas.
+PREFIJOS_GENERICOS = {
+    "CONJUNTO", "CAMISETA", "COMBO", "BERMUDA", "CALZADO", "SANDALIA", "CAMIBUSO", "PANTALONETA",
+    "GORRA", "JEAN", "BODY", "SUDADERA", "BLUSA", "CHAQUETA", "CAMISA", "CHANCLA", "MEDIAS", "SET",
+    "BOTA", "CALENTADOR", "CAMISILLA", "CARGO", "ENTERIZO", "KIT", "LEGGINS", "OVERSIZE", "PIJAMA",
+}
+
+
+def ref_publica(codigo: str) -> str:
+    prefijo = re.sub(r"-\d+$", "", codigo)
+    if prefijo in PREFIJOS_GENERICOS:
+        return codigo
+    h = zlib.crc32(codigo.encode("utf-8"))
+    return "SV-" + _b36(h)[-5:].rjust(5, "0").upper()
+
+
+def _b36(n: int) -> str:
+    cifras = "0123456789abcdefghijklmnopqrstuvwxyz"
+    out = ""
+    while n:
+        n, r = divmod(n, 36)
+        out = cifras[r] + out
+    return out or "0"
+
+
 def _num(codigo: str) -> int:
     m = re.search(r"(\d+)$", codigo or "")
     return int(m.group(1)) if m else 0
@@ -129,6 +157,11 @@ def sanear_producto(p: dict) -> dict:
         tipo = TIPO_NOMBRE.get(pub["categoria"], pub["categoria"])
         g = GENERO_TXT.get(p.get("genero") or "", "")
         pub["nombre"] = f"{tipo}{' ' + g if g else ''} N.º {_num(codigo)}"
+    ref = ref_publica(codigo)
+    if ref != codigo:
+        pub["ref"] = ref
+    else:
+        pub.pop("ref", None)
     return pub
 
 
@@ -141,6 +174,9 @@ def verificar(datos: list[dict]) -> None:
     for pat in (r"\+57[\s\d]{8,}", r"Anita"):
         if re.search(pat, texto):
             raise SystemExit(f"rastro del proveedor en el catálogo público: {pat}")
+    refs = [p.get("ref") or p["codigo"] for p in datos]
+    if len(set(refs)) != len(refs):
+        raise SystemExit("referencias públicas repetidas")
     print(f"OK: {len(datos)} productos, campos {sorted(claves)}")
 
 
