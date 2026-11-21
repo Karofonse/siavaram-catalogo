@@ -243,6 +243,8 @@ CSS = """
   .card { background:var(--surf); border:1px solid var(--bord); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; height:100%; }
   .card img { width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; object-position:center 20%; display:block; background:var(--bord); }
   .card .cuerpo { padding:10px 12px 12px; display:flex; flex-direction:column; gap:4px; flex:1; }
+  .card h3 a { color:inherit; text-decoration:none; }
+  .card h3 a:hover { text-decoration:underline; }
   .card h3 { font-size:14px; line-height:1.3; margin:0; color:var(--txt); font-weight:600; }
   .card .ref { font-size:12px; color:var(--muted); }
   .card .tallas { font-size:12px; color:var(--muted); }
@@ -359,9 +361,9 @@ def pagina(p, cat, pixel, todas):
         t = tallas(x)
         lazy = 'eager' if i < 2 else 'lazy'
         out += f'''<li class="card" id="{x['codigo']}">
-  <img src="/{x['imagenes'][0]}" alt="{esc(nombre(x))}" width="675" height="900" loading="{lazy}" decoding="async">
+  <a href="/producto/{x['codigo']}/" aria-label="Ver {esc(nombre(x))}"><img src="/{x['imagenes'][0]}" alt="{esc(nombre(x))}" width="675" height="900" loading="{lazy}" decoding="async"></a>
   <div class="cuerpo">
-    <h3>{esc(nombre(x))}</h3>
+    <h3><a href="/producto/{x['codigo']}/">{esc(nombre(x))}</a></h3>
     <span class="ref">Ref. {x['codigo']}</span>
     {f'<span class="tallas">Talla: {esc(t)}</span>' if t else ''}
     <span class="precio">{cop(x['precio_venta'])}</span>
