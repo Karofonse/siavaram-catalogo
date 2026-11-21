@@ -1,78 +1,37 @@
-# Catálogo de Calzado - Siavaram
+# Catálogo Web — Siavaran (siavaran.com)
 
-Catálogo público estático (HTML + fotos) lista para alojar en tu dominio.
+Sitio público estático de **Siavaran** (`https://siavaran.com/`), publicado directamente desde la rama `main` mediante **GitHub Pages**.
 
 ## Estructura
 
-- `index.html` — página con 2.718 productos (zapatos, ropa, perfumes), filtros, fotos, carrito, botón "Comprar por WhatsApp".
-- `fotos/` — 943 MB de imágenes optimizadas (900px, JPEG calidad 60).
+- `index.html` — portada editorial (ropa de mujer y perfumes destacados) y catálogo interactivo con filtros, favoritos y pedido directo por WhatsApp.
+- `envios.html`, `cambios.html`, `privacidad.html`, `terminos.html` — páginas informativas y legales.
+- `data/catalogo.json` — datos del catálogo público saneados (sin costos ni datos internos de proveedores).
+- `fotos/` — imágenes WebP de los productos (`fotos/thumbs/` contiene miniaturas de 360 px para las tarjetas destacadas de portada).
+- `logos/` y `assets/` — recursos gráficos de la tienda.
+- `robots.txt` y `sitemap.xml` — indexación SEO.
 
-## Desplegar a tu hosting
+## Publicación (GitHub Pages)
 
-### Opción 1: SCP / SSH
-
-```bash
-scp -r fotos index.html tu-usuario@siavaram:/var/www/html/
-```
-
-### Opción 2: Git (después de crear el repo en GitHub)
-
-```bash
-git add .gitignore README.md index.html
-git commit -m "Initial: catálogo estático"
-git remote add origin https://github.com/tu-usuario/siavaram-catalogo.git
-git branch -M main
-git push -u origin main
-# Luego haz pull en tu servidor
-```
-
-### Opción 3: SFTP / FTP
-
-Usa tu cliente FTP (Transmit, Cyberduck, etc.) para subir la carpeta.
+El sitio se sirve como HTML estático puro desde GitHub Pages (rama `main`, dominio `siavaran.com` configurado en `CNAME`). No utiliza `package.json`, bundler ni pasos de compilación (`npm run build`).
 
 ## Actualizar el catálogo
 
-Este `index.html` ya tiene el diseño de la tienda. No lo reemplaces por el HTML
-generado en bruto. Cuando el datalake tenga productos nuevos, copia solo los
-datos y las fotos, y sanea antes de publicar:
+Este `index.html` contiene el diseño de la tienda. Cuando el datalake tenga productos nuevos, actualiza `data/catalogo.json` y las tarjetas destacadas de portada con los scripts incluidos:
 
 ```bash
-# En didactic-octo-eureka (opcional, genera también cliente.html):
-python3 datalake.py unificar datalake/gold --salida tienda --cliente
-
-# En este repo, después de pegar productos en index.html:
+# 1. Sanear el catálogo público (elimina costos, márgenes y datos de proveedor):
 python3 scripts/sanear_catalogo_publico.py
+
+# 2. Regenerar las tarjetas estáticas destacadas de portada en index.html:
+python3 scripts/generar_portada.py
 ```
 
-El script quita costos, márgenes, nombre y teléfono del proveedor, y el texto
-original (lleva el costo). En el sitio público solo debe quedar el precio de venta.
+## Compatibilidad de `localStorage`
 
-## Vista interna (solo en local)
+En `index.html` se conservan deliberadamente las claves históricas de `localStorage`:
+- `calzado_favs` — lista de códigos marcados como favoritos por la usuaria.
+- `calzado_theme` — preferencia de tema claro/oscuro (`light` / `dark`).
+- `calzado_seccion` — última sección consultada en el catálogo.
 
-GitHub Pages publica todo este repo: no subas aquí un `index.html` con costos.
-La vista interna y la calculadora se generan en didactic-octo-eureka:
-
-```bash
-python3 datalake.py unificar datalake/gold --salida tienda
-# Abrir tienda/index.html en local. No copiar ese archivo a este repo.
-```
-
-## Estructura esperada en el servidor
-
-```
-/var/www/html/siavaram/
-├── index.html
-└── fotos/
-    ├── NIKE-730-01.jpg
-    ├── ADIDAS-001-01.jpg
-    └── ...
-```
-
-La URL será: `https://siavaram/` (o `https://siavaram/catalogo/` si lo montas en una subcarpeta).
-
-## Notas
-
-- **Sin servidor dinámico**: todo es HTML + imágenes estáticas. Muy rápido.
-- **Botón "Comprar por WhatsApp"**: prellenable con el código del producto.
-- **Responsivo**: optimizado para móviles.
-- **Offline**: funciona después del primer load sin red.
+**Nota:** No renombrar estas claves para no borrar los favoritos ni las preferencias guardadas en los navegadores de las clientas actuales.

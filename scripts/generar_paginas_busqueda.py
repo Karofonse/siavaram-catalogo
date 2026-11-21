@@ -9,7 +9,7 @@ Reglas que respeta el script:
 - Nombres, precios, tallas y fotos salen del catálogo. Nada se inventa.
 - Escribe buscar/<slug>/index.html, buscar/index.html (hub) y actualiza sitemap.xml.
 """
-import html, json, re, shutil, sys, unicodedata
+import html, json, re, shutil, sys, unicodedata, unicodedata
 from pathlib import Path
 from urllib.parse import quote
 
@@ -32,25 +32,25 @@ PAGINAS = [
  dict(slug="ropa-de-mujer-con-envio-a-bogota", grupo="Ropa de mujer",
   title="Ropa de mujer con envío a Bogotá | Siavaran",
   h1="Ropa de mujer con envío a Bogotá",
-  desc="Bodys, jeans, conjuntos y pijama para mujer con envío a Bogotá. Mira fotos y precios y pide por WhatsApp; te confirmamos el tiempo y el costo según tu ciudad.",
+  desc="Bodys, jeans, conjuntos y pijama para mujer con envío a Bogotá. Mira fotos y precios y pide por WhatsApp; envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.",
   intro=["Si vives en Bogotá y quieres ropa de mujer sin salir a recorrer centros comerciales, aquí tienes una selección de nuestro catálogo: bodys, jeans, un conjunto de manga larga y una pijama.",
-         "Tú eliges por foto, nos escribes por WhatsApp con tu talla y coordinamos el pago por Nequi o transferencia. Al pedirlo te confirmamos el tiempo y el costo de envío según tu ciudad."],
+         "Tú eliges por foto, nos escribes por WhatsApp con tu talla y coordinamos el pago por Nequi o transferencia. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp."],
   consejos=["Para las capas de una ciudad de clima cambiante, el conjunto de manga larga y los jeans combinan fácil con un body básico.",
             "Escríbenos con tu talla habitual o tus medidas y te ayudamos a escoger."],
   prods=["BODY-006","JEAN-003","CONJUNTO-076","BODY-004","JEAN-005","SUDADERA-010","BODY-007","PIJAMA-002"]),
  dict(slug="ropa-de-mujer-con-envio-a-medellin", grupo="Ropa de mujer",
   title="Ropa de mujer con envío a Medellín | Siavaran",
   h1="Ropa de mujer con envío a Medellín",
-  desc="Ropa de mujer para Medellín: bodys, jeans, shorts de jean y conjuntos. Pide fácil por WhatsApp; te confirmamos el tiempo y el costo de envío según tu ciudad.",
+  desc="Ropa de mujer para Medellín: bodys, jeans, shorts de jean y conjuntos. Pide fácil por WhatsApp; envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.",
   intro=["¿Buscas ropa de mujer y estás en Medellín? Reunimos prendas de nuestro catálogo que puedes pedir desde el celular: bodys, jeans, un short de jean y conjuntos cómodos.",
-         "Escribes por WhatsApp, confirmamos disponibilidad y pagas por Nequi o transferencia. Al pedirlo te confirmamos el tiempo y el costo de envío según tu ciudad. Si no te queda la talla, puedes pedir el cambio por el mismo chat."],
+         "Escribes por WhatsApp, confirmamos disponibilidad y pagas por Nequi o transferencia. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Si no te queda la talla, puedes pedir el cambio por el mismo chat."],
   consejos=["Cada prenda muestra su referencia: mándanos la que te guste y te confirmamos tallas disponibles.",
             "Pagas por Nequi o transferencia, sin pasarelas ni registros."],
   prods=["BODY-005","JEAN-004","CONJUNTO-072","BODY-008","BERMUDA-016","JEAN-006","CONJUNTO-076","BODY-007"]),
  dict(slug="ropa-de-mujer-con-envio-a-cali", grupo="Ropa de mujer",
   title="Ropa de mujer con envío a Cali | Siavaran",
   h1="Ropa de mujer con envío a Cali",
-  desc="Compra ropa de mujer desde Cali: short de jean, bodys, jeans y pijama. Pide por WhatsApp; te confirmamos el tiempo y el costo de envío según tu ciudad.",
+  desc="Compra ropa de mujer desde Cali: short de jean, bodys, jeans y pijama. Pide por WhatsApp; envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.",
   intro=["Para quienes compran desde Cali: prendas de mujer de nuestro catálogo, con fotos reales y precio visible, para que decidas sin vueltas.",
          "Cuando elijas, tocas el botón de WhatsApp y te respondemos con disponibilidad, forma de pago, y el tiempo y el costo de envío según tu ciudad."],
   consejos=["En una ciudad calurosa como Cali, el short de jean, los bodys y la pijama son las opciones más frescas de esta lista.",
@@ -59,9 +59,9 @@ PAGINAS = [
  dict(slug="ropa-de-mujer-con-envio-a-barranquilla", grupo="Ropa de mujer",
   title="Ropa de mujer con envío a Barranquilla | Siavaran",
   h1="Ropa de mujer con envío a Barranquilla",
-  desc="Ropa de mujer con envío a Barranquilla: short de jean, bodys, jeans y conjuntos. Pide por WhatsApp; te confirmamos el tiempo y el costo según tu ciudad.",
+  desc="Ropa de mujer con envío a Barranquilla: short de jean, bodys, jeans y conjuntos. Pide por WhatsApp; envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.",
   intro=["Si estás en Barranquilla y quieres renovar tu clóset, mira esta selección de ropa de mujer de nuestro catálogo, con foto y precio de cada prenda.",
-         "Escribes por WhatsApp, confirmamos disponibilidad y pagas por Nequi o transferencia. Al pedirlo te confirmamos el tiempo y el costo de envío según tu ciudad."],
+         "Escribes por WhatsApp, confirmamos disponibilidad y pagas por Nequi o transferencia. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp."],
   consejos=["Para el calor de la costa, mira el short de jean, los bodys y la pijama.",
             "Los jeans y el conjunto de manga larga son buenos para salir de noche o para viajar."],
   prods=["BERMUDA-016","BODY-008","JEAN-005","BODY-005","PIJAMA-002","BODY-004","JEAN-004","CONJUNTO-076"]),
@@ -69,7 +69,7 @@ PAGINAS = [
   title="Ropa de mujer con envío a toda Colombia | Siavaran",
   h1="Ropa de mujer con envío a toda Colombia",
   desc="Ropa de mujer con envío a todo el país: bodys, jeans, short de jean, conjuntos y pijama. Fotos reales, precios claros y pedido por WhatsApp.",
-  intro=["Toda la ropa de mujer de esta página se envía a cualquier ciudad de Colombia. Al pedirlo te confirmamos el tiempo y el costo según tu ciudad.",
+  intro=["Toda la ropa de mujer de esta página se envía a cualquier ciudad de Colombia. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.",
          "Ves la foto y el precio, nos escribes por WhatsApp y pagas por Nequi o transferencia. Así de simple."],
   consejos=["Tienes cambios por talla: escríbenos por WhatsApp y lo coordinamos (mira la política de cambios abajo).",
             "Todos los precios están en pesos colombianos (COP)."],
@@ -77,28 +77,28 @@ PAGINAS = [
  dict(slug="jeans-para-mujer", grupo="Ropa de mujer",
   title="Jeans para mujer: precios y envío a Colombia | Siavaran",
   h1="Jeans para mujer",
-  desc="Jeans y short de jean para mujer con precio y foto reales. Envío a toda Colombia; te confirmamos el tiempo y el costo según tu ciudad. Pide por WhatsApp.",
+  desc="Jeans y short de jean para mujer con precio y foto reales. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Pide por WhatsApp.",
   intro=["Jeans de nuestro catálogo: dos ajustados, dos baggy (uno negro y otro con rasgados) y un short de jean rasgado. Cada uno con su foto, su referencia y su precio.",
          "Pide por WhatsApp con tu talla habitual o tus medidas, y te decimos qué tallas hay."],
   consejos=["Para jeans, lo más fiable es que nos des tus medidas de cintura y cadera: así evitamos cambios.",
-            "Al pedirlo te confirmamos el tiempo y el costo de envío según tu ciudad."],
+            "Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp."],
   prods=["JEAN-003","JEAN-004","JEAN-005","JEAN-006","BERMUDA-016"]),
  dict(slug="bodys-para-mujer", grupo="Ropa de mujer",
   title="Bodys para mujer: negro, de malla y más | Siavaran",
   h1="Bodys para mujer",
   desc="Bodys para mujer: básico negro, de malla, halter y más. Fotos reales, precio visible y envío a toda Colombia. Pide por WhatsApp.",
   intro=["Un body es de las prendas más fáciles de combinar: con jeans, con falda o con un pantalón de vestir. Estos son los bodys que tenemos ahora en el catálogo.",
-         "Hay uno básico negro, uno de malla, uno con espalda abierta y otros con detalles. Si la tarjeta trae talla, la verás ahí; si no, te confirmamos medidas por WhatsApp."],
-  consejos=["Si la tarjeta muestra talla, úsala de guía; si no aparece, escríbenos por WhatsApp y te ayudamos con las medidas.",
-            "Te confirmamos el tiempo y el costo de envío según tu ciudad. Cambios por talla, escribiéndonos por WhatsApp."],
+         "Hay uno básico negro, uno de malla, uno con espalda abierta y otros con detalles. Te confirmamos las tallas por WhatsApp."],
+  consejos=["Si tienes duda con la talla, escríbenos por WhatsApp y te orientamos.",
+            "Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Cambios por talla, escribiéndonos por WhatsApp."],
   prods=["BODY-007","BODY-006","BODY-005","BODY-004","BODY-008"]),
  dict(slug="ropa-comoda-para-mujer", grupo="Ropa de mujer",
   title="Ropa cómoda para mujer: conjuntos, sudadera y pijama | Siavaran",
   h1="Ropa cómoda para mujer",
-  desc="Conjuntos de manga larga y de pantalón de lunares, sudadera ancha y pijama para mujer. Envío a toda Colombia; te confirmamos el tiempo y el costo según tu ciudad. Pide por WhatsApp.",
+  desc="Conjuntos de manga larga y de pantalón de lunares, sudadera ancha y pijama para mujer. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Pide por WhatsApp.",
   intro=["Para estar en casa, viajar o ir a la universidad sin sentirte incómoda: un conjunto de manga larga, un conjunto con pantalón de lunares y camiseta estampada, una sudadera de corte ancho y una pijama.",
-         "Todo con foto real y precio visible. Pides por WhatsApp y te lo enviamos a tu casa; te confirmamos el tiempo y el costo según tu ciudad."],
-  consejos=["Si tienes duda con la talla, escríbenos por WhatsApp y te ayudamos.",
+         "Todo con foto real y precio visible. Pides por WhatsApp y te lo enviamos a tu casa. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp."],
+  consejos=["Si tienes duda con la talla, escríbenos por WhatsApp y te orientamos.",
             "Si dudas entre dos opciones, mándanos las fotos por WhatsApp y te ayudamos a decidir."],
   prods=["CONJUNTO-076","CONJUNTO-072","SUDADERA-010","PIJAMA-002"]),
  dict(slug="perfume-para-regalo", grupo="Perfumes y regalos",
@@ -108,23 +108,23 @@ PAGINAS = [
   intro=["Un combo de perfume con body splash o crema es un regalo que casi nunca falla. Estos vienen en caja o en bolsa de regalo con moño, listos para entregar.",
          "Elige el que prefieras, escríbenos por WhatsApp y te contamos qué incluye cada combo y si está disponible."],
   consejos=["Si es para otra persona, cuéntanos cómo es y te recomendamos uno.",
-            "Al pedirlo te confirmamos el tiempo y el costo de envío según tu ciudad."],
+            "Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp."],
   prods=["COMBO-024","COMBO-035","COMBO-036","COMBO-040","COMBO-042"]),
  dict(slug="perfume-para-regalo-en-bogota", grupo="Perfumes y regalos",
   title="Perfume para regalo con envío a Bogotá | Siavaran",
   h1="Perfume para regalo con envío a Bogotá",
-  desc="Combos de perfume y body splash para regalar en Bogotá. Te confirmamos el tiempo y el costo de envío según tu ciudad. Precio visible y pedido por WhatsApp.",
+  desc="Combos de perfume y body splash para regalar en Bogotá. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Precio visible y pedido por WhatsApp.",
   intro=["¿Necesitas un regalo en Bogotá y no quieres complicarte? Mira estos combos de perfume con cuidado corporal, con su empaque de regalo.",
-         "Te lo enviamos a Bogotá; al pedirlo te confirmamos el tiempo y el costo según tu ciudad. Puedes pedir que llegue directamente a la persona que va a recibirlo."],
+         "Te lo enviamos a Bogotá; al pedirlo envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Puedes pedir que llegue directamente a la persona que va a recibirlo."],
   consejos=["Dinos la dirección de entrega al escribirnos por WhatsApp.",
             "Pide con unos días de anticipación si es para una fecha puntual."],
   prods=["COMBO-024","COMBO-035","COMBO-036","COMBO-042"]),
  dict(slug="perfume-para-regalo-en-medellin", grupo="Perfumes y regalos",
   title="Perfume para regalo con envío a Medellín | Siavaran",
   h1="Perfume para regalo con envío a Medellín",
-  desc="Combos de perfume y cuidado corporal para regalar en Medellín. Te confirmamos el tiempo y el costo de envío según tu ciudad. Pide por WhatsApp.",
+  desc="Combos de perfume y cuidado corporal para regalar en Medellín. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Pide por WhatsApp.",
   intro=["Si el regalo es para alguien en Medellín, estos combos de perfume con body splash o crema son una opción práctica: ya vienen empacados.",
-         "Al pedirlo te confirmamos el tiempo y el costo de envío según tu ciudad."],
+         "Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp."],
   consejos=["Escríbenos por WhatsApp y confirmamos qué trae cada combo.",
             "Pagas por Nequi o transferencia."],
   prods=["COMBO-036","COMBO-040","COMBO-042","COMBO-035"]),
@@ -135,7 +135,7 @@ PAGINAS = [
   intro=["En vez de comprar el perfume y el body splash por separado, un combo te da ambos en un solo pedido, y se ve bien al regalarlo.",
          "Los precios están a la vista. Si quieres saber qué incluye cada uno, escríbenos por WhatsApp."],
   consejos=["Cada tarjeta muestra la referencia del combo.",
-            "Al pedirlo te confirmamos el tiempo y el costo de envío según tu ciudad."],
+            "Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp."],
   prods=["COMBO-042","COMBO-040","COMBO-036","COMBO-035"]),
  dict(slug="regalos-para-mujer", grupo="Perfumes y regalos",
   title="Regalos para mujer: perfumes, bodys y pijama | Siavaran",
@@ -144,12 +144,12 @@ PAGINAS = [
   intro=["Si no sabes qué regalar, aquí hay dos opciones seguras: un combo de perfume con cuidado corporal, o una prenda bonita como un body o una pijama.",
          "Todo tiene precio visible. Escríbenos por WhatsApp, cuéntanos para quién es y te ayudamos a elegir."],
   consejos=["Para ropa necesitamos la talla; para los combos de perfume no.",
-            "Al pedirlo te confirmamos el tiempo y el costo de envío según tu ciudad."],
+            "Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp."],
   prods=["COMBO-024","BODY-005","COMBO-035","PIJAMA-002","COMBO-042","BODY-006"]),
  dict(slug="regalos-de-navidad-para-mujer", grupo="Perfumes y regalos",
   title="Regalos de Navidad para mujer | Siavaran",
   h1="Regalos de Navidad para mujer",
-  desc="Ideas de regalo de Navidad para mujer: combos de perfume, pijama, bodys y conjuntos. Envío a Colombia; te confirmamos el tiempo y el costo según tu ciudad.",
+  desc="Ideas de regalo de Navidad para mujer: combos de perfume, pijama, bodys y conjuntos. Envío a Colombia; envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.",
   intro=["Si estás armando tu lista de Navidad, esta selección te adelanta el trabajo: combos de perfume en empaque de regalo, una pijama y prendas para estrenar.",
          "Pide con tiempo: al escribirnos te confirmamos el tiempo de envío según tu ciudad, y así evitas el afán de última hora."],
   consejos=["Escríbenos por WhatsApp con la dirección y la fecha en que la necesitas.",
@@ -295,7 +295,7 @@ def cabecera(titulo, desc, canon, og_img, extra_ld, pixel):
 """
 
 PIE = """<footer><div class="bar">
-  <span>© Siavaran · Envío a toda Colombia</span>
+  <span>© Siavaran · Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp</span>
   <a href="/buscar/">Guías de compra</a>
   <a href="/privacidad.html">Privacidad</a>
   <a href="/terminos.html">Términos y condiciones</a>
@@ -336,7 +336,7 @@ def pagina(p, cat, pixel, todas):
     out += f'<h1>{esc(p["h1"])}</h1>\n<div class="intro">\n'
     for par in p["intro"]:
         out += f'  <p>{esc(par)}</p>\n'
-    out += '</div>\n<span class="envio">Te confirmamos el tiempo y el costo de envío según tu ciudad</span>\n'
+    out += '</div>\n<span class="envio">Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp</span>\n'
     out += '<ul class="grid">\n'
     for i, x in enumerate(prods):
         t = tallas(x)
@@ -358,7 +358,7 @@ def pagina(p, cat, pixel, todas):
     for c in p["consejos"]:
         out += f'  <li>{esc(c)}</li>\n'
     out += '</ul></div>\n'
-    out += '<h2>Cómo pedir</h2>\n<ol class="pasos">\n  <li>Elige la prenda y toca «Pedir por WhatsApp»: el mensaje ya sale con la referencia y el precio.</li>\n  <li>Te confirmamos disponibilidad y talla.</li>\n  <li>Pagas por Nequi o transferencia. Al escribirnos te confirmamos el tiempo y el costo de envío según tu ciudad.</li>\n</ol>\n'
+    out += '<h2>Cómo pedir</h2>\n<ol class="pasos">\n  <li>Elige la prenda y toca «Pedir por WhatsApp»: el mensaje ya sale con la referencia y el precio.</li>\n  <li>Te confirmamos disponibilidad y talla.</li>\n  <li>Pagas por Nequi o transferencia. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.</li>\n</ol>\n'
     out += '<p>¿Algo no te queda? Lee nuestra política de <a href="/cambios.html">cambios y devoluciones</a>. Los precios son en pesos colombianos (COP).</p>\n'
     rel = [q for q in todas if q["slug"] != p["slug"] and q["grupo"] == p["grupo"]][:6]
     out += '<h2>Más guías</h2>\n<ul class="relacionadas">\n'
@@ -378,7 +378,7 @@ def hub(cat, pixel):
         {"@type": "ItemList", "name": "Guías de compra", "numberOfItems": len(items), "itemListElement": items}]}
     out = cabecera(titulo, desc, url, f"{SITIO}/assets/editorial/og-portada.jpg", ld, pixel)
     out += '<main>\n<p class="migas"><a href="/">Inicio</a> › Guías de compra</p>\n<h1>Guías de compra</h1>\n'
-    out += '<div class="intro"><p>Estas guías reúnen productos reales de nuestro catálogo según lo que más buscan nuestras clientas: ropa de mujer en tu ciudad, jeans, bodys, perfumes y regalos.</p><p>Todo con foto, precio visible y envío a toda Colombia. Al pedirlo te confirmamos el tiempo y el costo según tu ciudad. Pides por WhatsApp y pagas por Nequi o transferencia.</p></div>\n'
+    out += '<div class="intro"><p>Estas guías reúnen productos reales de nuestro catálogo según lo que más buscan nuestras clientas: ropa de mujer en tu ciudad, jeans, bodys, perfumes y regalos.</p><p>Todo con foto, precio visible y envío a toda Colombia. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Pides por WhatsApp y pagas por Nequi o transferencia.</p></div>\n'
     for g in ["Ropa de mujer", "Perfumes y regalos"]:
         out += f'<h2>{g}</h2>\n<ul class="relacionadas" style="flex-direction:column">\n'
         for p in PAGINAS:

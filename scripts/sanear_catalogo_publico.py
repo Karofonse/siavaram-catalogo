@@ -56,19 +56,19 @@ GENERO_TXT = {"Dama": "mujer", "Hombre": "hombre", "Niño": "niño", "Unisex": "
 
 # Nombres y tallas escritos a mano para los destacados de la portada (sin marcas).
 NOMBRES_MANUALES = {
-    "CONJUNTO-064": ("Conjunto deportivo de licra mujer", "Talla única"),
-    "CONJUNTO-065": ("Conjunto deportivo 3 piezas mujer", "Talla única"),
-    "CONJUNTO-063": ("Conjunto jogger beige mujer", "Talla única"),
+    "CONJUNTO-064": ("Conjunto deportivo de licra mujer", ""),
+    "CONJUNTO-065": ("Conjunto deportivo 3 piezas mujer", ""),
+    "CONJUNTO-063": ("Conjunto jogger beige mujer", ""),
     "CONJUNTO-061": ("Conjunto deportivo blusa y sudadera mujer", "M · L · XL"),
     "CONJUNTO-070": ("Conjunto deportivo blusa y sudadera mujer", "M · L"),
-    "CONJUNTO-076": ("Conjunto manga larga mujer", "Talla única"),
+    "CONJUNTO-076": ("Conjunto manga larga mujer", ""),
     "CONJUNTO-067": ("Conjunto deportivo top y legging mujer", "S · M · L"),
     "JEAN-003": ("Jean stretch skinny mujer", "3 · 5 · 7 · 9 · 11 · 13"),
     "JEAN-005": ("Jean baggy negro mujer", "3 · 5 · 7 · 9 · 11"),
-    "BODY-006": ("Body de malla mujer", "Talla única"),
-    "BODY-007": ("Body básico negro mujer", "Talla única"),
+    "BODY-006": ("Body de malla mujer", ""),
+    "BODY-007": ("Body básico negro mujer", ""),
     "OVERSIZE-002": ("Camiseta oversize estampada mujer", "S · M · L · XL"),
-    "PIJAMA-002": ("Pijama en tela rib mujer", "Talla única"),
+    "PIJAMA-002": ("Pijama en tela rib mujer", ""),
     # Perfumes y sets de regalo destacados (descripción tomada de su ficha, sin marca).
     "COMBO-024": ("Combo de regalo: perfume, body splash y caja", ""),
     "COMBO-035": ("Combo de regalo: perfume, body splash y caja con moño", ""),
@@ -151,7 +151,7 @@ def sanear_producto(p: dict) -> dict:
 
     if codigo in NOMBRES_MANUALES:
         pub["nombre"], tt = NOMBRES_MANUALES[codigo]
-        if tt:
+        if tt and not re.search(r"talla\s*única", tt, re.I):
             pub["tallas_txt"] = tt
     elif not p.get("nombre"):
         tipo = TIPO_NOMBRE.get(pub["categoria"], pub["categoria"])
