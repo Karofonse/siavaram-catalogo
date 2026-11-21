@@ -60,12 +60,20 @@ def tarjeta(p: dict) -> str:
         msg += f"Tallas: {talla}\n"
     msg += f"Precio: *{precio} COP*\n\n¿Está disponible?"
     url = f"https://wa.me/{WA}?text=" + urllib.parse.quote(msg, safe="")
-    img = html.escape(p["imagenes"][0])
+    img_raw = p["imagenes"][0]
+    img = html.escape(img_raw)
+    thumb_path = RAIZ / "fotos" / "thumbs" / Path(img_raw).name
+    if thumb_path.exists():
+        thumb_rel = html.escape(f"fotos/thumbs/{Path(img_raw).name}")
+        src_attr = (f'src="{thumb_rel}" srcset="{thumb_rel} 360w, {img} 675w" '
+                    f'sizes="(max-width: 580px) calc(50vw - 18px), (max-width: 900px) calc(33vw - 18px), 260px"')
+    else:
+        src_attr = f'src="{img}"'
     cod = html.escape(p["codigo"])
     det = f'\n        <div class="card-details"><span>📏 {html.escape(talla)}</span></div>' if talla else ""
     return f'''    <article class="card card-destacada" data-codigo="{cod}">
       <div class="card-media" onclick="window.abrirProducto&amp;&amp;abrirProducto('{cod}')" style="cursor:pointer">
-        <img src="{img}" alt="{nombre}" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
+        <img {src_attr} alt="{nombre}" width="675" height="900" loading="lazy" decoding="async" class="card-main-img card-img">
       </div>
       <div class="card-body">
         <div class="card-title-row"><div class="card-brand">{html.escape(p["categoria"])}</div></div>

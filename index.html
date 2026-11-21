@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<title>Siavaran | Moda y Perfumes · Envío gratis a toda Colombia</title>
-<meta name="description" content="Ropa de mujer y perfumes importados con envío gratis a toda Colombia, 2 a 5 días hábiles. Pide por WhatsApp y paga por Nequi o transferencia.">
+<meta name="theme-color" content="#111111">
+<title>Siavaran | Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp</title>
+<meta name="description" content="Ropa de mujer y perfumes importados. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Paga por Nequi o transferencia.">
 <link rel="canonical" href="https://siavaran.com/">
+<link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="logos/logo-siavaran.webp" type="image/webp">
-<link rel="preload" href="data/catalogo.json" as="fetch" crossorigin="anonymous">
-<link rel="preload" href="assets/editorial/hero-mujer.webp" as="image" media="(min-width: 581px)">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
 <!-- Meta Pixel: inactivo mientras PIXEL_ID sea el marcador. Reemplaza 'PIXEL_ID' por el ID numérico real de tu Pixel. -->
 <script>
@@ -39,10 +40,12 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://siavaran.com">
+<meta property="og:site_name" content="Siavaran">
+<meta property="og:url" content="https://siavaran.com/">
 <meta property="og:title" content="Siavaran | Moda y Perfumes">
-<meta property="og:description" content="Ropa de mujer y perfumes. Envío gratis a toda Colombia, 2 a 5 días hábiles. Pide por WhatsApp.">
+<meta property="og:description" content="Ropa de mujer y perfumes. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.">
 <meta property="og:image" content="https://siavaran.com/assets/editorial/og-portada.jpg">
+<meta property="og:image:alt" content="Siavaran — Ropa de mujer, perfumes y calzado en Colombia">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_CO">
@@ -50,8 +53,9 @@
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Siavaran | Moda y Perfumes">
-<meta name="twitter:description" content="Ropa de mujer y perfumes. Envío gratis a toda Colombia, 2 a 5 días hábiles.">
+<meta name="twitter:description" content="Ropa de mujer y perfumes. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.">
 <meta name="twitter:image" content="https://siavaran.com/assets/editorial/og-portada.jpg">
+<meta name="twitter:image:alt" content="Siavaran — Ropa de mujer, perfumes y calzado en Colombia">
 
 <!-- Schema.org JSON-LD (ClothingStore + FAQPage) -->
 <script type="application/ld+json">
@@ -62,7 +66,9 @@
       "@type": "ClothingStore",
       "name": "Siavaran",
       "url": "https://siavaran.com/",
-      "description": "Ropa de mujer y perfumes importados con envío gratis a toda Colombia.",
+      "logo": "https://siavaran.com/logos/logo-siavaran.png",
+      "image": "https://siavaran.com/assets/editorial/og-portada.jpg",
+      "description": "Ropa de mujer y perfumes importados. Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp.",
       "telephone": "+57 310 693 5192",
       "currenciesAccepted": "COP",
       "paymentAccepted": "Nequi, Transferencia bancaria",
@@ -95,7 +101,7 @@
           "name": "¿Cuáles son los tiempos de envío?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Envío gratis a toda Colombia, 2 a 5 días hábiles."
+            "text": "Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp"
           }
         },
         {
@@ -104,6 +110,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Nequi o transferencia bancaria. El pago se confirma antes de despachar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo funcionan los cambios y devoluciones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lee la política de cambios y devoluciones en https://siavaran.com/cambios.html, incluido el derecho de retracto (Ley 1480 de 2011)."
           }
         }
       ]
@@ -126,9 +140,11 @@
     --text-subtle: #a89f94;
     --primary: #ff5420;
     --primary-hover: #e0451a;
+    --primary-text: #c43605;
+    --primary-text-hover: #a82e04;
     --primary-subtle: #fff2ee;
     --primary-border: #ffcab8;
-    --accent-price: #059669;
+    --accent-price: #047857;
     --accent-price-subtle: #ecfdf5;
     --sale-border: #a7f3d0;
     --cost: #c2410c;
@@ -169,6 +185,8 @@
     --text-subtle: #6a5f55;
     --primary: #ff5420;
     --primary-hover: #e0451a;
+    --primary-text: #ff7a50;
+    --primary-text-hover: #ff5420;
     --primary-subtle: rgba(255,84,32,0.18);
     --primary-border: rgba(255,84,32,0.35);
     --accent-price: #10b981;
@@ -341,13 +359,13 @@
     border-color: var(--border-hover);
   }
   .btn-primary {
-    background: var(--primary);
+    background: #c43605;
     color: #fff;
-    border-color: var(--primary);
+    border-color: #c43605;
   }
   .btn-primary:hover {
-    background: var(--primary-hover);
-    border-color: var(--primary-hover);
+    background: #a82e04;
+    border-color: #a82e04;
     color: #fff;
   }
   .btn-fav {
@@ -504,10 +522,10 @@
     color: var(--text-primary);
   }
   .chip.active {
-    background: var(--primary);
-    border-color: var(--primary);
+    background: #c43605;
+    border-color: #c43605;
     color: #fff;
-    box-shadow: 0 2px 8px rgba(255,84,32,0.32);
+    box-shadow: 0 2px 8px rgba(196,54,5,0.32);
   }
   .chip-badge {
     opacity: 0.75;
@@ -550,9 +568,9 @@
   }
   .section-tab:hover { color: var(--text-primary); background: var(--bg-surface); }
   .section-tab.active {
-    background: var(--primary);
+    background: #c43605;
     color: #fff;
-    box-shadow: 0 2px 10px rgba(255,84,32,0.30);
+    box-shadow: 0 2px 10px rgba(196,54,5,0.30);
   }
   .section-tab .n {
     font-size: 11px;
@@ -633,9 +651,9 @@
   .cselect-btn:hover { border-color: var(--border-hover); color: var(--text-primary); }
   .cselect-btn.cs-open { border-color: var(--primary); box-shadow: 0 0 0 2.5px var(--primary-subtle); }
   .cselect-btn.cs-has-val {
-    border-color: var(--primary);
+    border-color: var(--primary-text);
     background: var(--primary-subtle);
-    color: var(--primary);
+    color: var(--primary-text);
     font-weight: 600;
   }
 
@@ -674,7 +692,7 @@
     border-bottom: 1px solid var(--border-subtle);
   }
   .cselect-option:hover { background: var(--bg-surface-subtle); }
-  .cselect-option.cs-active { color: var(--primary); font-weight: 700; background: var(--primary-subtle); }
+  .cselect-option.cs-active { color: var(--primary-text); font-weight: 700; background: var(--primary-subtle); }
   .cselect-option:first-child.cs-active { color: var(--text-muted); font-weight: 400; background: transparent; }
 
   /* CHIPS ROW */
@@ -719,7 +737,7 @@
     gap: 4px;
     font-size: 12px;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--primary-text);
     background: none;
     border: none;
     cursor: pointer;
@@ -738,8 +756,8 @@
     gap: 8px;
     font-size: 13px;
     background: var(--primary-subtle);
-    color: var(--primary);
-    border: 1px solid var(--primary);
+    color: var(--primary-text);
+    border: 1px solid var(--primary-text);
     border-radius: 20px;
     padding: 4px 12px;
     margin: 8px 0 0;
@@ -748,7 +766,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--primary);
+    color: var(--primary-text);
     font-size: 14px;
     padding: 0;
     line-height: 1;
@@ -858,7 +876,7 @@
   .badge-discount {
     top: 0;
     left: 0;
-    background: #ff5420;
+    background: #c43605;
     color: #fff;
     border-radius: 0 0 var(--radius-sm) 0;
     box-shadow: none;
@@ -871,7 +889,7 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    background: #ff5420;
+    background: #c43605;
     color: #fff;
     font-size: 10px;
     font-weight: 900;
@@ -882,7 +900,7 @@
     line-height: 1.4;
     pointer-events: none;
     z-index: 2;
-    box-shadow: 0 2px 6px rgba(255,84,32,0.4);
+    box-shadow: 0 2px 6px rgba(196,54,5,0.4);
   }
   body.cliente .badge-discount {
     display: none !important;
@@ -1073,7 +1091,7 @@
     display: block;
     font-size: 13px;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--primary-text);
     margin: 4px 0 2px;
     letter-spacing: 0.01em;
   }
@@ -1160,7 +1178,7 @@
     inset: 0;
     background: rgba(0,0,0,0.7);
     backdrop-filter: blur(6px);
-    z-index: 100;
+    z-index: 500;
     display: none;
     align-items: center;
     justify-content: center;
@@ -1472,14 +1490,14 @@
   }
   #modal-btn-wa {
     width: 100%;
-    background: #25d366;
+    background: #15803d;
     border: none;
     color: #ffffff;
     font-size: 15px;
     font-weight: 700;
     padding: 13px 20px;
     border-radius: var(--radius-md);
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    box-shadow: 0 4px 14px rgba(21, 128, 61, 0.35);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1488,8 +1506,8 @@
     transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
   #modal-btn-wa:hover {
-    background: #20ba5a;
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+    background: #166534;
+    box-shadow: 0 6px 18px rgba(21, 128, 61, 0.45);
     transform: translateY(-1px);
     color: #ffffff;
   }
@@ -1497,17 +1515,17 @@
     transform: translateY(0);
   }
   .btn-whatsapp {
-    background: #ff5420;
+    background: #c43605;
     color: #fff;
-    border-color: #ff5420;
+    border-color: #c43605;
     font-size: 14px;
     font-weight: 700;
     padding: 11px 16px;
     border-radius: var(--radius-md);
   }
   .btn-whatsapp:hover {
-    background: #e04018;
-    border-color: #e04018;
+    background: #a82e04;
+    border-color: #a82e04;
     color: #fff;
   }
 
@@ -1720,7 +1738,7 @@
     min-height: 42px;
     padding: 9px 12px;
     margin-top: auto;
-    background: #ff5420;
+    background: #c43605;
     color: #ffffff;
     font-size: 13px;
     font-weight: 700;
@@ -1729,12 +1747,12 @@
     cursor: pointer;
     transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
     text-decoration: none;
-    box-shadow: 0 2px 8px rgba(255,84,32,0.30);
+    box-shadow: 0 2px 8px rgba(196,54,5,0.30);
   }
   .btn-card-wa:hover {
-    background: #e04018;
+    background: #a82e04;
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(255,84,32,0.40);
+    box-shadow: 0 4px 14px rgba(196,54,5,0.40);
   }
   .card-urgency {
     font-size: 11px;
@@ -1745,11 +1763,11 @@
     display: inline-block;
     margin-bottom: 6px;
   }
-  .card-urgency.last-one  { background: #ff5420; color: #fff; }
-  .card-urgency.few-left  { background: rgba(255,84,32,0.12); color: #ff5420; }
-  .card-urgency.offer-end { background: rgba(255,200,0,0.15); color: #b07800; }
+  .card-urgency.last-one  { background: #c43605; color: #fff; }
+  .card-urgency.few-left  { background: rgba(196,54,5,0.12); color: var(--primary-text); }
+  .card-urgency.offer-end { background: rgba(255,200,0,0.15); color: #8a5d00; }
 
-  /* MOBILE FLOATING BOTTOM BAR (Task 10) */
+  /* CATALOG FILTER BAR */
   .catalog-filter-bar {
     position: relative;
     top: auto;
@@ -1760,75 +1778,6 @@
     border-bottom: 1px solid var(--border-subtle);
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     padding-bottom: 4px;
-  }
-  .mobile-bottom-bar {
-    display: none;
-  }
-  @media (max-width: 768px) {
-    .mobile-bottom-bar {
-      display: flex;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid var(--border);
-      padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
-      gap: 10px;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-      width: 100%;
-      box-sizing: border-box;
-    }
-    [data-theme="dark"] .mobile-bottom-bar {
-      background: rgba(17, 24, 39, 0.94);
-    }
-    .mobile-bottom-btn {
-      flex: 1;
-      min-height: 46px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      border-radius: var(--radius-md);
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn-wa-float {
-      background: #25d366;
-      color: #ffffff;
-      flex: 2;
-      box-shadow: 0 2px 12px rgba(37, 211, 102, 0.30);
-    }
-    .btn-fav-float {
-      flex: 1;
-      background: #111;
-      border: none;
-      color: #fff;
-      font-size: 12px;
-      position: relative;
-    }
-    .btn-fav-float .fav-badge {
-      position: absolute;
-      top: 6px;
-      right: 10px;
-      background: #ff5420;
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      line-height: 1;
-      padding: 2px 5px;
-      border-radius: 999px;
-      display: none;
-    }
-    .btn-fav-float.has-favs .fav-badge { display: block; }
-    body {
-      padding-bottom: 74px;
-    }
   }
 
   /* MOBILE RESPONSIVE TUNING - ZERO DISPLACEMENT */
@@ -2375,7 +2324,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #ff5420;
+    background: #c43605;
     color: #ffffff;
     border: none;
     border-radius: var(--radius-full);
@@ -2390,17 +2339,11 @@
   }
   .editorial-hero-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(255,84,32,0.55);
-    background: #e0451a;
+    box-shadow: 0 8px 28px rgba(196,54,5,0.55);
+    background: #a82e04;
   }
 
   @media (max-width: 480px) {
-    .editorial-hero-img,
-    .editorial-hero img,
-    .hero-product-img {
-      width: 55%;
-      opacity: 0.35;
-    }
     .editorial-hero-title {
       font-size: clamp(40px, 12vw, 60px);
     }
@@ -2428,13 +2371,11 @@
   }
   .collections-header p {
     font-size: 11px;
-    color: #ff5420;
+    color: var(--primary-text);
     margin-top: 8px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     font-weight: 700;
-    text-transform: uppercase;
-    font-weight: 500;
   }
   .collections-grid {
     display: grid;
@@ -2668,11 +2609,21 @@
       height: clamp(400px, 60vh, 520px);
       border-radius: var(--radius-md);
       background:
-        url('assets/editorial/hero-mujer.webp') center 22% / cover no-repeat,
         radial-gradient(ellipse at 50% 90%, rgba(190,85,20,0.70) 0%, rgba(130,45,0,0.32) 40%, transparent 66%),
         #0e0e0e;
     }
-    .editorial-hero-img { display: none; }
+    .editorial-hero-img {
+      display: block;
+      inset: 0;
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      -webkit-mask-image: none;
+      mask-image: none;
+      opacity: 1;
+    }
     .editorial-hero-overlay {
       flex-direction: column;
       justify-content: space-between;
@@ -2702,11 +2653,9 @@
       height: clamp(340px, 46vh, 410px);
       min-height: 340px;
       background:
-        url('assets/editorial/hero-mujer.webp') center 22% / cover no-repeat,
         radial-gradient(ellipse at 50% 90%, rgba(190,85,20,0.70) 0%, rgba(130,45,0,0.32) 40%, transparent 66%),
         #0e0e0e;
     }
-    .editorial-hero-img { display: none; }
     .editorial-hero-title { font-size: 36px; }
     .editorial-hero-sub { font-size: 13px; }
     .collections-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -2758,7 +2707,7 @@
     position: fixed;
     bottom: 24px;
     right: 20px;
-    z-index: 999;
+    z-index: 95;
     width: 52px;
     height: 52px;
     border-radius: 50%;
@@ -2768,17 +2717,22 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 16px rgba(37,211,102,0.45);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
     text-decoration: none;
   }
   #whatsapp-fab:hover {
     transform: scale(1.08);
     box-shadow: 0 6px 22px rgba(37,211,102,0.55);
   }
-  @media (max-width: 768px) {
-    #whatsapp-fab {
-      bottom: 74px;
-    }
+  .modal-overlay.open ~ #whatsapp-fab,
+  .modal-overlay.open ~ #scroll-top-btn,
+  body.modal-open #whatsapp-fab,
+  body.modal-open #scroll-top-btn,
+  body:has(.modal-overlay.open, .fsheet.open, .img-lightbox.open) #whatsapp-fab,
+  body:has(.modal-overlay.open, .fsheet.open, .img-lightbox.open) #scroll-top-btn {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
   }
 
   /* TAREA 13: FAV TOAST */
@@ -2804,11 +2758,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-  @media (max-width: 768px) {
-    #fav-toast {
-      bottom: 136px;
-    }
-  }
 
   /* TAREA 14: BOTON COMPARTIR */
   .btn-compartir {
@@ -2833,20 +2782,20 @@
   /* TAREA 15: SCROLL TO TOP */
   #scroll-top-btn {
     position: fixed;
-    bottom: 108px;
+    bottom: 24px;
     left: 20px;
-    z-index: 999;
+    z-index: 95;
     width: 46px;
     height: 46px;
     border-radius: 50%;
-    background: #ff5420;
+    background: #c43605;
     border: none;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(255,84,32,0.45), 0 2px 6px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 16px rgba(196,54,5,0.45), 0 2px 6px rgba(0,0,0,0.25);
     opacity: 0;
     transform: translateY(10px) scale(0.9);
     transition: opacity 0.22s, transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
@@ -2858,16 +2807,11 @@
     pointer-events: auto;
   }
   #scroll-top-btn:hover {
-    background: #e04018;
-    box-shadow: 0 6px 20px rgba(255,84,32,0.55), 0 2px 8px rgba(0,0,0,0.30);
+    background: #a82e04;
+    box-shadow: 0 6px 20px rgba(196,54,5,0.55), 0 2px 8px rgba(0,0,0,0.30);
     transform: translateY(-2px) scale(1.05);
   }
   #scroll-top-btn:active { transform: scale(0.95); }
-  @media (max-width: 768px) {
-    #scroll-top-btn {
-      bottom: 94px;
-    }
-  }
 
   /* TAREA 17: LIGHTBOX */
   .img-lightbox {
@@ -2977,12 +2921,12 @@
     transition: all 0.15s;
   }
   .btn-abrir-filtros.has-filtros {
-    border-color: var(--primary);
-    color: var(--primary);
+    border-color: var(--primary-text);
+    color: var(--primary-text);
     background: var(--primary-subtle);
   }
   .filtros-count {
-    background: var(--primary);
+    background: #c43605;
     color: #fff;
     border-radius: 999px;
     padding: 1px 6px;
@@ -3027,11 +2971,11 @@
   .fsheet-selects .select-wrapper select { padding: 12px 32px 12px 12px; font-size: 14px; border-radius: var(--radius-md); }
   .fsheet-footer { display: flex; gap: 8px; padding: 12px 20px; border-top: 1px solid var(--border-subtle); flex-shrink: 0; padding-bottom: max(16px, env(safe-area-inset-bottom, 16px)); }
   .fsheet-btn-reset { flex: 1; padding: 12px; border: 1.5px solid var(--border); border-radius: var(--radius-md); background: transparent; color: var(--text-secondary); font-size: 13px; font-weight: 600; cursor: pointer; }
-  .fsheet-btn-apply { flex: 2; padding: 12px; border: none; border-radius: var(--radius-md); background: var(--primary); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }
+  .fsheet-btn-apply { flex: 2; padding: 12px; border: none; border-radius: var(--radius-md); background: #c43605; color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }
 
   /* TICKER DE OFERTAS */
   .oferta-ticker {
-    background: #ff5420;
+    background: #c43605;
     overflow: hidden;
     height: 34px;
     display: flex;
@@ -3079,7 +3023,7 @@
   }
 
   .ticker-sep {
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.88);
     font-size: 9px;
     padding: 0 2px;
   }
@@ -3092,7 +3036,7 @@
   .editorial-hero-title { font-size: clamp(44px, 6.5vw, 76px); }
   .editorial-hero-overlay { padding: 32px 40px 34px; }
   @media (max-width: 768px) {
-    .editorial-hero-img { width: 62%; opacity: 0.75; }
+    .editorial-hero-img { width: 100%; max-width: none; opacity: 1; -webkit-mask-image: none; mask-image: none; object-position: center 22%; }
     .editorial-hero-overlay { padding: 22px 20px 24px; }
   }
   @media (max-width: 580px) {
@@ -3106,7 +3050,7 @@
   .destacados-grid .card-media img { object-position: center 20%; }
   a.btn-card-wa { text-decoration: none; box-sizing: border-box; }
   .portada-mas { text-align: center; margin-top: 16px; }
-  .btn-portada-mas { background: transparent; color: var(--primary); border: 1.5px solid var(--primary); border-radius: var(--radius-full); padding: 11px 26px; font-size: 14px; font-weight: 800; cursor: pointer; }
+  .btn-portada-mas { background: transparent; color: var(--primary-text); border: 1.5px solid var(--primary-text); border-radius: var(--radius-full); padding: 11px 26px; font-size: 14px; font-weight: 800; cursor: pointer; }
   .btn-portada-mas:hover { background: var(--primary-subtle); }
   .portada-catalogo { margin-top: 44px; margin-bottom: 4px; }
   .site-footer-inner a { padding: 2px 0; }
@@ -3308,7 +3252,7 @@
         <div class="brand-icon"><img src="logos/logo-siavaran.webp" alt="Siavaran" width="52" height="52" decoding="async" style="display:block;object-fit:contain;"></div>
         <div class="brand-text">
           <h1 id="titulo-catalogo">Siavaran</h1>
-          <p id="subtitulo-proveedor">Moda y Perfumes · Envío gratis a toda Colombia</p>
+          <p id="subtitulo-proveedor">Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp</p>
         </div>
       </a>
       <div class="header-actions">
@@ -3334,7 +3278,7 @@
     <img class="editorial-hero-img" src="assets/editorial/hero-mujer.webp" alt="Conjunto jogger beige para mujer" width="675" height="900" loading="eager" fetchpriority="high">
     <div class="editorial-hero-overlay">
       <div class="hero-top">
-        <p class="editorial-eyebrow">★ Envío gratis a toda Colombia</p>
+        <p class="editorial-eyebrow">Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp</p>
         <h2 class="editorial-hero-title">Siavaran</h2>
       </div>
       <div class="hero-bottom">
@@ -3348,7 +3292,7 @@
   <section class="portada-seccion" id="ropa-mujer">
     <div class="collections-header">
       <h2>Ropa de <span class="accent">mujer</span></h2>
-      <p>Pide por WhatsApp · Envío gratis</p>
+      <p>Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp</p>
     </div>
     <div class="product-grid destacados-grid">
     <!-- PORTADA:ROPA:INICIO -->
@@ -3678,8 +3622,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
         <div class="cro-benefit-text">
-          <h3>Envío gratis a toda Colombia</h3>
-          <p>2 a 5 días hábiles. Paga por Nequi o transferencia.</p>
+          <h3>Envíos a toda Colombia</h3>
+          <p>Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. <a href="envios.html" style="color:var(--primary-text);font-weight:700;">Ver envíos</a></p>
         </div>
       </div>
   </div>
@@ -3736,9 +3680,6 @@
         <button class="chip" data-chip-type="videos"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> Con Video</button>
       </div>
       <div class="fsheet-selects">
-        <div class="select-wrapper" style="display:none">
-          <select id="filtro-marca" hidden></select>
-        </div>
         <div class="select-wrapper">
           <select id="filtro-categoria"><option value="">Categorías</option></select>
           <span class="select-arrow">▾</span>
@@ -3746,8 +3687,8 @@
         <div class="select-wrapper">
           <select id="filtro-genero">
             <option value="">Género</option>
+            <option value="Dama" selected>Dama</option>
             <option value="Hombre">Hombre</option>
-            <option value="Dama">Dama</option>
             <option value="Niño">Niño</option>
             <option value="Unisex">Unisex</option>
           </select>
@@ -3802,7 +3743,7 @@
     </details>
     <details>
       <summary>¿Cuáles son los tiempos de envío?</summary>
-      <p>Envío gratis a toda Colombia, 2 a 5 días hábiles.</p>
+      <p>Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp. Más información en nuestra <a href="envios.html" style="color:var(--primary-text);font-weight:700;">página de envíos</a>.</p>
     </details>
     <details>
       <summary>¿Qué métodos de pago aceptan?</summary>
@@ -3810,7 +3751,7 @@
     </details>
     <details>
       <summary>¿Cómo funcionan los cambios y devoluciones?</summary>
-      <p>Lee la <a href="cambios.html">política de cambios y devoluciones</a>, incluido el derecho de retracto.</p>
+      <p>Lee la <a href="cambios.html" style="color:var(--primary-text);font-weight:700;">política de cambios y devoluciones</a>, incluido el derecho de retracto.</p>
     </details>
   </div>
 
@@ -3819,6 +3760,8 @@
       <span class="site-footer-logo">Siavaran</span>
       <span class="site-footer-sep">·</span>
       <a href="https://wa.me/573106935192" target="_blank" rel="noopener" data-lead="footer">WhatsApp</a>
+      <span class="site-footer-sep">·</span>
+      <a href="envios.html">Envíos</a>
       <span class="site-footer-sep">·</span>
       <a href="privacidad.html">Privacidad</a>
       <span class="site-footer-sep">·</span>
@@ -3991,13 +3934,84 @@
 const urlParams = new URLSearchParams(window.location.search);
 const CLIENTE = true;
 const CATS_CALZADO_MODAL = new Set(['Tenis','Calzado','Botas','Chancletas','Zuecos','Guayos','Sandalias']);
+const CATS_ROPA_DAMA = new Set(['Blusa','Body','Enterizo','Leggins','Pijama']);
+// Filtro de visualización reversible (no borra registros de data/catalogo.json):
+// Oculta en la vista pública los productos sin foto (367), con foto rota (56) o sin precio (48).
+const OCULTAR_INCOMPLETOS_PUBLICO = true;
+const CODIGOS_FOTO_ROTA = new Set([
+  'ADIDAS-024','GUCCI-001','LOUIS-VUITTON-006','NIKE-045','NIKE-046','NIKE-050','PUMA-006','PUMA-007','SANDALIA-003',
+  'SIN-DESCRIPCION-001','SIN-DESCRIPCION-003','SIN-DESCRIPCION-004','SIN-DESCRIPCION-005','SIN-DESCRIPCION-006',
+  'SIN-DESCRIPCION-007','SIN-DESCRIPCION-008','SIN-DESCRIPCION-009','SIN-DESCRIPCION-010','SIN-DESCRIPCION-011',
+  'SIN-DESCRIPCION-012','SIN-DESCRIPCION-013','SIN-DESCRIPCION-014','SIN-DESCRIPCION-015','SIN-DESCRIPCION-016',
+  'SIN-DESCRIPCION-018','SIN-DESCRIPCION-019','SIN-DESCRIPCION-020','SIN-DESCRIPCION-021','SIN-DESCRIPCION-022',
+  'SIN-DESCRIPCION-023','SIN-DESCRIPCION-024','SIN-DESCRIPCION-026','SIN-DESCRIPCION-027','SIN-DESCRIPCION-028',
+  'SIN-DESCRIPCION-029','SIN-DESCRIPCION-030','SIN-DESCRIPCION-031','SIN-DESCRIPCION-032','SIN-DESCRIPCION-033',
+  'SIN-DESCRIPCION-034','SIN-DESCRIPCION-035','SIN-DESCRIPCION-036','SIN-DESCRIPCION-037','SIN-DESCRIPCION-038',
+  'SIN-DESCRIPCION-039','SIN-DESCRIPCION-040','SIN-DESCRIPCION-041','SIN-DESCRIPCION-042','SIN-DESCRIPCION-043',
+  'SIN-DESCRIPCION-044','SIN-DESCRIPCION-045','SIN-DESCRIPCION-046','SIN-DESCRIPCION-047','SIN-DESCRIPCION-048',
+  'SIN-DESCRIPCION-049','SIN-DESCRIPCION-050'
+]);
+
+function esProductoPublicable(p) {
+  if (!OCULTAR_INCOMPLETOS_PUBLICO || !CLIENTE) return true;
+  if (!p.imagenes || !p.imagenes.length) return false;
+  if (CODIGOS_FOTO_ROTA.has(p.codigo)) return false;
+  if (p.precio_venta == null || p.precio_venta <= 0) return false;
+  return true;
+}
+
+function generoEfectivo(p) {
+  if (p.genero) return p.genero;
+  if (/\b(mujer|dama)\b/i.test(p.nombre || '') || CATS_ROPA_DAMA.has(p.categoria)) return 'Dama';
+  return '';
+}
+
 document.body.classList.add('cliente');
-document.addEventListener('DOMContentLoaded', () => {
+
+// Nota sobre localStorage: se mantienen las claves históricas 'calzado_favs', 'calzado_theme' y
+// 'calzado_seccion' para no borrar los favoritos ni preferencias guardadas de las usuarias.
+(function initPortadaRapida() {
   const t = document.getElementById('titulo-catalogo');
   if (t) t.textContent = 'Siavaran';
-});
+
+  const savedTheme = localStorage.getItem('calzado_theme') ||
+    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const ti = document.getElementById('theme-icon');
+  if (ti) ti.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  try {
+    const favs = JSON.parse(localStorage.getItem('calzado_favs') || '[]');
+    const fc = document.getElementById('fav-count');
+    if (fc && favs.length > 0) {
+      fc.textContent = favs.length;
+      fc.style.display = '';
+    }
+  } catch (e) {}
+
+  const track = document.getElementById('ticker-track');
+  if (track && !track.innerHTML) {
+    const items = [
+      { fire: true,  text: 'Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp' },
+      { fire: false, text: 'Ropa de mujer desde $99.900' },
+      { fire: false, text: 'Perfumes desde $119.900' },
+      { fire: true,  text: 'Paga por Nequi o transferencia' },
+      { fire: true,  text: 'Pide por WhatsApp' },
+    ];
+    const sep = '<span class="ticker-sep">◆</span>';
+    const build = () => items.map(i => `<span class="ticker-item">${i.fire ? '<span class="ticker-fire">🔥</span> ' : ''}${i.text}</span>${sep}`).join('');
+    track.innerHTML = build() + build();
+  }
+})();
+
+let CATALOGO_COMPLETO = [];
 let PRODUCTOS = [];
+let catalogoIniciado = false;
+let catalogoPromise = null;
+
 function iniciarCatalogo() {
+if (catalogoIniciado) return;
+catalogoIniciado = true;
 const $ = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
 
@@ -4006,7 +4020,7 @@ const fmt = p => p == null ? 'Precio pendiente' : '$ ' + p.toLocaleString('es-CO
 
 const getSalePrice = p => p.precio_venta ?? null;
 
-// State
+// State (claves 'calzado_*' conservadas por compatibilidad con favoritos existentes)
 let favorites = new Set(JSON.parse(localStorage.getItem('calzado_favs') || '[]'));
 const activeChips = new Set(['all']);
 let filteredList = [];
@@ -4053,8 +4067,15 @@ try { activeSeccion = multiSeccion ? (localStorage.getItem('calzado_seccion') ||
 if (!seccionCounts[activeSeccion]) activeSeccion = 'Zapatos';
 
 if ($('#titulo-catalogo')) $('#titulo-catalogo').textContent = 'Siavaran';
-if ($('#subtitulo-proveedor')) $('#subtitulo-proveedor').textContent = 'Moda y Perfumes · Envío gratis a toda Colombia';
-document.title = 'Siavaran | Moda y Perfumes · Envío gratis a toda Colombia';
+if ($('#subtitulo-proveedor')) $('#subtitulo-proveedor').textContent = 'Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp';
+document.title = 'Siavaran | Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp';
+
+// Por defecto mostrar mujer ('Dama') en Zapatos / Ropa al iniciar
+if ($('#filtro-genero')) {
+  const defGen = activeSeccion === 'Perfumes' ? '' : 'Dama';
+  $('#filtro-genero').value = defGen;
+  $('#filtro-genero').classList.toggle('has-val', Boolean(defGen));
+}
 
 // Section tabs
 if (multiSeccion) {
@@ -4074,6 +4095,12 @@ if (multiSeccion) {
       tabs.querySelectorAll('.section-tab').forEach(x => x.classList.toggle('active', x === b));
       populateDropdowns();
       $('#btn-reset-filtros').click();
+      if ($('#filtro-genero') && (activeSeccion === 'Zapatos' || activeSeccion === 'Ropa')) {
+        $('#filtro-genero').value = 'Dama';
+        $('#filtro-genero').classList.add('has-val');
+        CustomSelect.syncAll();
+        applyFilters();
+      }
     });
   });
 }
@@ -4300,7 +4327,7 @@ function applyFilters() {
     // Dropdowns
     if (marca && p.marca !== marca) return false;
     if (cat && p.categoria !== cat) return false;
-    if (genero && p.genero !== genero) return false;
+    if (genero && generoEfectivo(p) !== genero) return false;
     if (talla !== null) {
       const hasTalla = (p.tallas && p.tallas.includes(talla)) || (p.talla_min != null && p.talla_min <= talla && talla <= p.talla_max);
       if (!hasTalla) return false;
@@ -4414,7 +4441,8 @@ function renderGrid(reset = false) {
     const isFav = favorites.has(p.codigo);
     const hasDiscount = Boolean(p.en_oferta);
     const discountBadge = '';
-    const genderBadge = p.genero ? `<span class="badge badge-gender ${p.genero}">${esc(p.genero)}</span>` : '';
+    const genEf = generoEfectivo(p);
+    const genderBadge = genEf ? `<span class="badge badge-gender ${genEf}">${esc(genEf)}</span>` : '';
     const mediaBadge = (hasPhotos || hasVideos) ?
       `<span class="badge badge-media-count">${hasPhotos ? `📸 ${p.imagenes.length}` : ''}${hasVideos ? ' 🎥' : ''}</span>` : '';
 
@@ -4432,7 +4460,7 @@ function renderGrid(reset = false) {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         </button>
         ${hasPhotos
-          ? `<img src="${p.imagenes[0]}" alt="${esc(p.nombre)}" loading="lazy" decoding="async" class="card-main-img card-img" data-img="${p.imagenes[0]}">`
+          ? `<img src="${p.imagenes[0]}" alt="${esc(p.nombre)}" width="675" height="900" sizes="(max-width: 580px) calc(50vw - 18px), (max-width: 900px) calc(33vw - 18px), 260px" loading="lazy" decoding="async" class="card-main-img card-img" data-img="${p.imagenes[0]}" onerror="this.closest('.card')&&(this.closest('.card').style.display='none')">`
           : `<div class="card-img-placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.3">
                 <path d="M2 16l4-8 4 4 4-6 4 4v6H2z"/>
@@ -4565,7 +4593,7 @@ function openModal(prod) {
 
   $('#modal-title').textContent = prod.nombre;
   $('#modal-code').textContent = refDe(prod);
-  if ($('#modal-gender')) $('#modal-gender').textContent = prod.genero || '—';
+  if ($('#modal-gender')) $('#modal-gender').textContent = generoEfectivo(prod) || '—';
   if ($('#modal-category')) $('#modal-category').textContent = prod.categoria || '—';
   if ($('#modal-collection')) $('#modal-collection').textContent = prod.coleccion || '—';
 
@@ -4625,6 +4653,7 @@ function openModal(prod) {
   m.style.display = 'flex';
   setTimeout(() => m.classList.add('open'), 10);
   document.body.style.overflow = 'hidden';
+  document.body.classList.add('modal-open');
 }
 
 function renderModalGallery() {
@@ -4736,6 +4765,7 @@ function closeModal() {
     m.querySelectorAll('video').forEach(v => v.pause());
   }, 200);
   document.body.style.overflow = '';
+  document.body.classList.remove('modal-open');
   history.replaceState(null, '', location.pathname);
 }
 $('#btn-cerrar-modal')?.addEventListener('click', closeModal);
@@ -4836,6 +4866,7 @@ function openFavoritesModal() {
   m.style.display = 'flex';
   setTimeout(() => m.classList.add('open'), 10);
   document.body.style.overflow = 'hidden';
+  document.body.classList.add('modal-open');
 }
 
 function closeFavoritesModal() {
@@ -4845,6 +4876,7 @@ function closeFavoritesModal() {
     m.style.display = 'none';
   }, 200);
   document.body.style.overflow = '';
+  document.body.classList.remove('modal-open');
 }
 
 $('#btn-ver-favoritos')?.addEventListener('click', openFavoritesModal);
@@ -4952,9 +4984,9 @@ if (btnFavMobile) {
 }
 function updateFiltrosBadge() {
   const btn = $('#btn-abrir-filtros');
-  const activos = ['filtro-marca', 'filtro-categoria', 'filtro-genero', 'filtro-talla',
+  const activos = ['filtro-categoria', 'filtro-genero', 'filtro-talla',
                    'filtro-precio-cliente'].filter(id => { const el = $('#' + id); return el && el.value; }).length
-                + (activeChips && activeChips.size > 0 ? 1 : 0) + (qInput && qInput.value.trim() ? 1 : 0);
+                + (activeChips && !activeChips.has('all') && activeChips.size > 0 ? 1 : 0) + (qInput && qInput.value.trim() ? 1 : 0);
   if (btn) {
     const fn = $('#filtros-n');
     if (fn) { fn.textContent = activos; fn.style.display = activos > 0 ? '' : 'none'; }
@@ -5158,11 +5190,11 @@ setTimeout(CustomSelect.init, 0);
   const min = {};
   for (const p of PRODUCTOS) {
     if (!p.precio_venta || !p.imagenes?.length) continue;
-    const k = p.seccion === 'Ropa' && p.genero === 'Dama' ? 'mujer' : p.seccion;
+    const k = p.seccion === 'Ropa' && generoEfectivo(p) === 'Dama' ? 'mujer' : p.seccion;
     if (!(k in min) || p.precio_venta < min[k]) min[k] = p.precio_venta;
   }
   const items = [
-    { fire: true,  text: 'Envío gratis a toda Colombia · 2 a 5 días hábiles' },
+    { fire: true,  text: 'Envíos a toda Colombia; el costo y el tiempo dependen de tu ciudad y te los confirmamos por WhatsApp' },
     min.mujer ? { fire: false, text: `Ropa de mujer desde ${fmt(min.mujer)}` } : null,
     min.Perfumes ? { fire: false, text: `Perfumes desde ${fmt(min.Perfumes)}` } : null,
     { fire: true,  text: 'Paga por Nequi o transferencia' },
@@ -5179,22 +5211,93 @@ setTimeout(CustomSelect.init, 0);
 
 window.aplicarFiltroColeccion = aplicarFiltroColeccion;
 window.limpiarTodosLosFiltros = limpiarTodosLosFiltros;
-window.abrirProducto = codigo => { const pr = PRODUCTOS.find(x => x.codigo === codigo); if (pr) openModal(pr); };
-window.irACatalogo = (seccion, genero) => {
+window._abrirProductoReady = codigo => {
+  const pr = PRODUCTOS.find(x => x.codigo === codigo || x.ref === codigo);
+  if (pr) openModal(pr);
+};
+window._irACatalogoReady = (seccion, genero) => {
   const tab = document.querySelector('.section-tab[data-seccion="' + (seccion || '') + '"]');
   if (tab) tab.click();
-  if ($('#filtro-genero')) { $('#filtro-genero').value = genero || ''; $('#filtro-genero').classList.toggle('has-val', !!genero); }
+  if ($('#filtro-genero')) {
+    $('#filtro-genero').value = genero || '';
+    $('#filtro-genero').classList.toggle('has-val', !!genero);
+    CustomSelect.syncAll();
+  }
   applyFilters();
   document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
+window._openFavoritesReady = openFavoritesModal;
 }
-fetch('data/catalogo.json')
-  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(d => { PRODUCTOS = d; iniciarCatalogo(); })
-  .catch(() => {
-    const s = document.getElementById('status-conteo');
-    if (s) s.textContent = 'No pudimos cargar el catálogo. Recarga la página o escríbenos por WhatsApp.';
-  });
+
+function cargarCatalogo() {
+  if (catalogoPromise) return catalogoPromise;
+  catalogoPromise = fetch('data/catalogo.json')
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => {
+      CATALOGO_COMPLETO = d;
+      PRODUCTOS = d.filter(esProductoPublicable);
+      iniciarCatalogo();
+    })
+    .catch(() => {
+      const s = document.getElementById('status-conteo');
+      if (s) s.textContent = 'No pudimos cargar el catálogo. Recarga la página o escríbenos por WhatsApp.';
+    });
+  return catalogoPromise;
+}
+
+// Wrappers para acciones antes de que cargue data/catalogo.json
+window.abrirProducto = codigo => {
+  cargarCatalogo().then(() => window._abrirProductoReady && window._abrirProductoReady(codigo));
+};
+window.irACatalogo = (seccion, genero) => {
+  document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  cargarCatalogo().then(() => window._irACatalogoReady && window._irACatalogoReady(seccion, genero));
+};
+
+// Tema claro/oscuro inmediato sin esperar al catálogo
+document.getElementById('btn-tema')?.addEventListener('click', () => {
+  if (catalogoIniciado) return;
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('calzado_theme', next);
+  const ti = document.getElementById('theme-icon');
+  if (ti) ti.textContent = next === 'dark' ? '☀️' : '🌙';
+});
+
+// Abrir favoritos carga el catálogo bajo demanda si aún no está listo
+document.getElementById('btn-ver-favoritos')?.addEventListener('click', () => {
+  if (!catalogoIniciado) {
+    cargarCatalogo().then(() => window._openFavoritesReady && window._openFavoritesReady());
+  }
+});
+
+// Buscador o botón de filtros cargan el catálogo bajo demanda
+['q', 'btn-abrir-filtros'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener('focus', cargarCatalogo, { once: true });
+    el.addEventListener('click', cargarCatalogo, { once: true });
+  }
+});
+
+// Carga diferida al acercarse a la sección del catálogo, o inmediata si hay deep-link ?p=
+if (urlParams.get('p')) {
+  cargarCatalogo();
+} else {
+  const catEl = document.getElementById('catalogo');
+  if (catEl && 'IntersectionObserver' in window) {
+    const catObs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        catObs.disconnect();
+        cargarCatalogo();
+      }
+    }, { rootMargin: '600px 0px' });
+    catObs.observe(catEl);
+  } else {
+    cargarCatalogo();
+  }
+}
 </script>
 
 <!-- GUÍA DE TALLAS MODAL -->
